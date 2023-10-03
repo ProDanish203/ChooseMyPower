@@ -20,3 +20,7 @@ export const navLinks = [
         path: "/contact"
     },
 ]
+
+export const providersName = ['All', 'CleanSky Energy', 'Energy Texas', 'Gexa Energy', 'Onpoint energy']
+
+export const usage = ['500kwh', '1000kwh', '2000kwh']
