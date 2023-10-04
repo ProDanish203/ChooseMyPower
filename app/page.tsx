@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/forms";
 import { Heading } from "@/components/helpers";
-import { About, Counter, Hero, Providers } from "@/components/shared";
+import { About, Counter, Hero, Providers, Team } from "@/components/shared";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,9 +16,11 @@ export default function Home() {
 
       <About/>
 
+      <Team/>
+
       <Counter/>
 
-      <section className="sm:px-10 px-3 py-10 bg-bg">
+      <section className="sm:px-10 px-3 py-10 ">
       <div className="flex flex-wrap gap-20 items-center justify-center">
         <div className='max-w-[450px] w-full'>
           <Heading title='Contact Us'/>
@@ -27,7 +29,7 @@ export default function Home() {
 
         <div className="max-lg:hidden">
           <div className="relative">
-            <Image src="/images/banner.jpg" alt='contact-us' width={500} height={400}
+            <Image src="/images/contact-us.png" alt='contact-us' width={500} height={400}
             className="object-contain rounded-md"
             />
           </div>

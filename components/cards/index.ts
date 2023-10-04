@@ -1,3 +1,4 @@
+import { TeamCard } from './TeamCard';
 import { RateCard } from './RateCard';
 
-export { RateCard }
+export { RateCard, TeamCard }

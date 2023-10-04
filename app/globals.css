@@ -28,6 +28,32 @@ body{
   filter: contrast(1);
 }
 
+.grid-3{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 5px;
+  row-gap: 20px;
+  place-items: center;
+}
+@media (max-width: 350px){
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+}
+.team-shadow{
+  box-shadow: -2px -5px 20px rgba(0 , 0, 0, 0.2);
+  z-index: 20;
+}
+.image-overlay-container:hover .image-overlay{
+  display: block;
+  opacity: 1;
+}
+.image-overlay{
+  background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
+  display: none;
+  opacity: 0;
+}
+
 /* Main Loader */
 .lds-roller {
   display: inline-block;
@@ -38,6 +64,7 @@ body{
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   transform-origin: 40px 40px;
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 .lds-roller div:after {
   content: " ";

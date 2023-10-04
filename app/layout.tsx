@@ -5,7 +5,7 @@ import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
 
 export const metadata: Metadata = {
-  title: 'Create My Power',
+  title: 'Choose My Power',
   description: 'Your personal reliable power broker',
 }
 
@@ -26,7 +26,7 @@ export default function RootLayout({
           <Header/>
         </div>  
 
-        <div>
+        <div className='bg-bg'>
           {children}
         </div>
         
