@@ -14,6 +14,7 @@
     "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "latest",
+    "react-countup": "^6.4.2",
     "react-dom": "latest",
     "react-toastify": "^9.1.3",
     "swr": "^2.2.4"

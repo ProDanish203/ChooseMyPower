@@ -1,3 +1,4 @@
+import { Loader } from './Loader';
 import { Heading } from './Heading';
 
-export { Heading }
+export { Heading, Loader }
