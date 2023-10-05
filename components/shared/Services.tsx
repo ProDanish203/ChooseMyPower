@@ -1,3 +1,4 @@
+import { ServiceCard } from "../cards"
 import { Heading, Subheading } from "../helpers"
 
 export const Services = () => {
@@ -17,8 +18,10 @@ export const Services = () => {
             </p>
         </div>
 
-        <div className="flex ">
-
+        <div className="flex items-center flex-wrap justify-center gap-5 w-full mx-auto mt-5">
+          <ServiceCard/>
+          <ServiceCard/>
+          <ServiceCard/>
         </div>
 
     </section>

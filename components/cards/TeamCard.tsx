@@ -7,9 +7,9 @@ interface Props{
 
 export const TeamCard = ({name, post}: Props) => {
   return (
-    <div className='hover:shadow-sm hover:scale-105 rounded-sm'>
+    <div className='hover:shadow-sm hover:scale-105 rounded-sm max-w-[350px] w-full'>
         
-        <div className='image-overlay-container relative sm:h-[500px] h-[300px] sm:min-w-[350px] min-w-[300px]'>
+        <div className='image-overlay-container relative sm:h-[450px] h-[300px]'>
             <div className='image-overlay absolute top-0 left-0 z-40 h-full w-full'>
 
                 <div className='flex items-center justify-center gap-3 h-full'>
