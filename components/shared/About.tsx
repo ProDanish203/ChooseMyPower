@@ -3,19 +3,19 @@ import { Heading, Subheading } from '../helpers'
 
 export const About = () => {
   return (
-    <section className='sm:px-10 px-3 py-10 max-w-[1100px] w-full mx-auto'>
+    <section className='sm:px-10 px-3 py-10 max-w-[1400px] w-full mx-auto'>
       <div className='flex flex-wrap max-lg:flex-col items-center justify-center gap-10'>
 
         <div className='flex-1'>
 
-        <Heading title='About us'/>
-        <Subheading title='RELIABLE ENERGY BROKER AND CONSULTANT'/>
+        <Subheading title='About Us'/>
+        <Heading title='RELIABLE ENERGY BROKER AND CONSULTANT'/>
 
-        <p className='mt-5 text-gray-700 text-sm'>
+        <p className='mt-5 text-gray-700 max-sm:text-sm'>
         As a leading energy broker, we've helped our clients save money on electricity and gas bills. We help businesses, whether large or small, create energy plans for their commercial electricity and gas needs. We have the experience and expertise to serve customers across multiple states and commodities.
         </p>
         <br />
-        <p className='text-gray-700 text-sm'>
+        <p className='text-gray-700 max-sm:text-sm'>
         At Choose My Power LLC, we compare energy suppliers and get the best rate for you. In addition, we strive to offer customers customized solutions to meet a broad range of their energy needs.
         </p>
 

@@ -9,7 +9,7 @@ const Contact = () => {
     <section className='sm:px-10 px-3 pb-10 bg-bg pt-32 min-h-[100vh]'>
         <ToastContainer/>        
 
-        <div className='max-w-[800px] w-full mx-auto'>
+        <div className='max-w-[1000px] w-full mx-auto'>
             <Heading title='Contact Us'/>
             <ContactForm/>
         </div>

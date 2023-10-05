@@ -28,18 +28,6 @@ body{
   filter: contrast(1);
 }
 
-.grid-3{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 5px;
-  row-gap: 20px;
-  place-items: center;
-}
-@media (max-width: 350px){
-  .grid-3{
-    grid-template-columns: 1fr;
-  }
-}
 .team-shadow{
   box-shadow: -2px -5px 20px rgba(0 , 0, 0, 0.2);
   z-index: 20;
