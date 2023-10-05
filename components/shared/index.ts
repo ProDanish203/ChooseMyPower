@@ -1,3 +1,4 @@
+import { Services } from './Services';
 import { Team } from './Team';
 import { Counter } from './Counter';
 import { About } from './About';
@@ -6,4 +7,4 @@ import { Hero } from './Hero';
 import { Header } from './Header';
 import { Footer } from "./Footer";
 
-export { Header, Hero, Providers, About, Counter, Team,  Footer }
+export { Header, Hero, Providers, About, Counter, Team, Services, Footer }

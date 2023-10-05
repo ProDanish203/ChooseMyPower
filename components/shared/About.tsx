@@ -11,11 +11,11 @@ export const About = () => {
         <Subheading title='About Us'/>
         <Heading title='RELIABLE ENERGY BROKER AND CONSULTANT'/>
 
-        <p className='mt-5 text-gray-700 max-sm:text-sm'>
+        <p className='mt-5 text-gray-700 sm:text-lg'>
         As a leading energy broker, we've helped our clients save money on electricity and gas bills. We help businesses, whether large or small, create energy plans for their commercial electricity and gas needs. We have the experience and expertise to serve customers across multiple states and commodities.
         </p>
         <br />
-        <p className='text-gray-700 max-sm:text-sm'>
+        <p className='text-gray-700 sm:text-lg'>
         At Choose My Power LLC, we compare energy suppliers and get the best rate for you. In addition, we strive to offer customers customized solutions to meet a broad range of their energy needs.
         </p>
 

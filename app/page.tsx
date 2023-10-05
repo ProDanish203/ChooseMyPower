@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/forms";
 import { Heading } from "@/components/helpers";
-import { About, Counter, Hero, Providers, Team } from "@/components/shared";
+import { About, Counter, Hero, Providers, Services, Team } from "@/components/shared";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,6 +17,8 @@ export default function Home() {
       <About/>
 
       <Team/>
+
+      <Services/>
 
       <Counter/>
 
