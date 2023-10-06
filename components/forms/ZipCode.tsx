@@ -1,19 +1,34 @@
+"use client"
 import { Select } from "@radix-ui/themes";
+import { FormEvent, useState } from "react";
+import { useRouter } from 'next/navigation';
+import { toast } from "react-toastify";
 
-interface Props{
-  zip: string;
-  setZip: (zip: string) => void;
-  type: string;
-  setType: (type: string) => void;
-}
+export const ZipCode = () => {
 
-export const ZipCode = ({zip, setZip, type, setType} : Props) => {
+  const [zip, setZip] = useState('')
+  const [type, setType] = useState('residential')
+
+  const router = useRouter();
+
+  const handleZipCode = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if(!zip || zip.match(/^[0-9]+$/) == null || zip.length != 5) 
+      return toast.error("Please provide a valid zip code"); 
+
+    router.push(`/compareRates/${zip}?type=${type}`)    
+  }
 
   const handleSelectChange = (e:any) => {
     setType(e);
   }
 
-  return (
+  return ( 
+  <form onSubmit={handleZipCode} className='mt-10'
+  data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200"
+  >
+
     <div className='flex items-center max-md:flex-col max-md:justify-center gap-2 bg-secondary md:py-1 py-4 px-4 md:pr-1 relative rounded-md'>
 
     <input type="text" 
@@ -45,5 +60,6 @@ export const ZipCode = ({zip, setZip, type, setType} : Props) => {
     </div>
 
     </div>
+  </form>
   )
 }

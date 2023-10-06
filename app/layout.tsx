@@ -29,7 +29,7 @@ export default function RootLayout({
           <Header/>
         </div>  
 
-        <div className='bg-bg pt-16'>
+        <div className='bg-bg pt-16 min-h-[100vh]'>
           {children}
         </div>
         

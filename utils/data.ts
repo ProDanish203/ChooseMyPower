@@ -96,21 +96,33 @@ export const servicesData = [
         image: '/images/services/trade.jpg',
         title: 'Trade And Sale Of Energy (Oil, Gas, Electricity, Utilities & Mining)',
         slug: 'trade',
-        desc: '',
+        desc: [
+            'At Choose My Power LLC, we work closely with our clients to understand their energy goals and requirements and assist in developing and implementing comprehensive energy solutions. Choose My Power LLC is a full-service energy consulting and advisory firm with many years of experience researching, recommending, and procuring energy solutions. We provide consultancy and advisory services for energy procurement from start to finish. We ensure that clients get the maximum value and do not face any disputes. We have strong relationships with leading suppliers of electricity, natural gas, and other related services in the country. Choose My Power LLC provides comprehensive solutions to reduce energy expenses and minimize budgetary risks.',
+
+            'We provide customized energy solutions and services designed to generate value for clients. Our energy consultants and advisors offer personalized solutions for each client’s needs. We can help you implement a proven energy procurement strategy, build monitoring tools, and secure the lowest energy prices. For many years Choose My Power LLC has been responsible for increasing the efficiency of energy procurement for many businesses and getting the best energy rates. Our highly trained energy consultants and advisors have advised clients all over the country. If you are looking for an experienced energy Consultant and Advisor, look no further than Choose My Power LLC.'
+        ],
+        shortDesc: 'Choose My Power LLC is a leading energy broker. We provide brokerage and consulting services for the trade and sale of energy, including oil, gas, electricity, utilities, and mining',
+    },
+    {
+        image: '/images/services/trade.jpg',
+        title: 'Solar energy Experts (Consultancy)',
+        slug: 'solar-and-green-energy',
+        desc: [
+            'At Choose My Power LLC, we work closely with our clients to understand their energy goals and requirements and assist in developing and implementing comprehensive energy solutions. Choose My Power LLC is a full-service energy consulting and advisory firm with many years of experience researching, recommending, and procuring energy solutions. We provide consultancy and advisory services for energy procurement from start to finish. We ensure that clients get the maximum value and do not face any disputes. We have strong relationships with leading suppliers of electricity, natural gas, and other related services in the country. Choose My Power LLC provides comprehensive solutions to reduce energy expenses and minimize budgetary risks.',
+            
+            'We provide customized energy solutions and services designed to generate value for clients. Our energy consultants and advisors offer personalized solutions for each client’s needs. We can help you implement a proven energy procurement strategy, build monitoring tools, and secure the lowest energy prices. For many years Choose My Power LLC has been responsible for increasing the efficiency of energy procurement for many businesses and getting the best energy rates. Our highly trained energy consultants and advisors have advised clients all over the country. If you are looking for an experienced energy Consultant and Advisor, look no further than Choose My Power LLC.'
+        ],
         shortDesc: 'Choose My Power LLC is a leading energy broker. We provide brokerage and consulting services for the trade and sale of energy, including oil, gas, electricity, utilities, and mining',
     },
     {
         image: '/images/services/trade.jpg',
         title: 'Trade And Sale Of Energy (Oil, Gas, Electricity, Utilities & Mining)',
-        slug: 'trade',
-        desc: '',
-        shortDesc: 'Choose My Power LLC is a leading energy broker. We provide brokerage and consulting services for the trade and sale of energy, including oil, gas, electricity, utilities, and mining',
-    },
-    {
-        image: '/images/services/trade.jpg',
-        title: 'Trade And Sale Of Energy (Oil, Gas, Electricity, Utilities & Mining)',
-        slug: 'trade',
-        desc: '',
+        slug: 'energy',
+        desc: [
+            'At Choose My Power LLC, we work closely with our clients to understand their energy goals and requirements and assist in developing and implementing comprehensive energy solutions. Choose My Power LLC is a full-service energy consulting and advisory firm with many years of experience researching, recommending, and procuring energy solutions. We provide consultancy and advisory services for energy procurement from start to finish. We ensure that clients get the maximum value and do not face any disputes. We have strong relationships with leading suppliers of electricity, natural gas, and other related services in the country. Choose My Power LLC provides comprehensive solutions to reduce energy expenses and minimize budgetary risks.',
+            
+            'We provide customized energy solutions and services designed to generate value for clients. Our energy consultants and advisors offer personalized solutions for each client’s needs. We can help you implement a proven energy procurement strategy, build monitoring tools, and secure the lowest energy prices. For many years Choose My Power LLC has been responsible for increasing the efficiency of energy procurement for many businesses and getting the best energy rates. Our highly trained energy consultants and advisors have advised clients all over the country. If you are looking for an experienced energy Consultant and Advisor, look no further than Choose My Power LLC.'
+        ],
         shortDesc: 'Choose My Power LLC is a leading energy broker. We provide brokerage and consulting services for the trade and sale of energy, including oil, gas, electricity, utilities, and mining',
     },
 ]

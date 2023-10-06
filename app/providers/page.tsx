@@ -1,23 +1,24 @@
 import { ZipCode } from '@/components/forms'
+import React from 'react'
 
-const ServiceAreas = () => {
+const Providers = () => {
   return (
     <section>
     <div className='bg-primary sm:px-10 px-3 py-10 min-h-[50vh] flex max-lg:flex-col flex-wrap items-center justify-start gap-2 w-full'>
 
-        <div className='flex-1'>
-            <h2 className='max-lg:text-center text-bg text-5xl max-sm:text-3xl font-medium mb-3'>
-                Our Sevice Areas
-            </h2>
+    <div className='flex-1'>
+        <h2 className='max-lg:text-center text-bg text-5xl max-sm:text-3xl font-medium mb-3'>
+            Texas Electricity Providers
+        </h2>
 
-            <h4 className='max-lg:text-center text-bg font-medium text-xl max-sm:text-lg'>
-                Find your desireable service area and compare electricity prices easily. 
-            </h4>
-        </div>
+        <h4 className='max-lg:text-center text-bg font-medium text-xl max-sm:text-lg'>
+            Retail electricity providers for home and business
+        </h4>
+    </div>
 
-        <div className='mx-auto w-full max-w-[460px]'>
-            <ZipCode/>
-        </div>
+    <div className='mx-auto w-full max-w-[460px]'>
+        <ZipCode/>
+    </div>
 
     </div>
 
@@ -29,12 +30,11 @@ const ServiceAreas = () => {
         </p>
 
         <p className='mt-4 text-gray-700 md:text-[17px]'>
-        On our marketplace, you won't find providers with a history of dishonest business practices or misleading terms. We work with top-notch power companies in Texas to ensure you receive the service you pay for and help you find lower electric rates. 
+        On our marketplace, you won’t find providers with a history of dishonest business practices or misleading terms. We work with top-notch power companies in Texas to ensure you receive the service you pay for and help you find lower electric rates. 
         </p>
     </div>
-
     </section>
   )
 }
 
-export default ServiceAreas
+export default Providers
