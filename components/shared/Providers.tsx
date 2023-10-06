@@ -10,15 +10,19 @@ export const Providers = () => {
 
       <div className="max-md:w-full flex flex-wrap items-center justify-center gap-5 ">
         {
-          providerData.map((provider, i) => (
-          <div className="py-4 px-4 rounded-sm shadow-sm cursor-pointer bg-secondary" key={i}>
-            <div className="relative">
-              <Image src={provider.image} alt={provider.name} width={200} height={140}
-              className="object-contain hide-img-bg"
-              />
-            </div>
-          </div>
-          ))
+          providerData.map((provider, i) => {
+            const delay = (i % 4 + 2 ) * 50;
+            return (
+              <div className="py-4 px-4 rounded-sm shadow-sm cursor-pointer bg-gray-200" key={i}
+              data-aos="fade-up" data-aos-delay={`${delay}`} data-aos-duration="1200"
+              >
+                <div className="relative">
+                  <Image src={provider.image} alt={provider.name} width={130} height={80}
+                  className="object-contain hide-img-bg"/>
+                </div>
+              </div>
+              ) 
+          })
         }
     
         

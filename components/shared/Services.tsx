@@ -1,3 +1,4 @@
+import { servicesData } from "@/utils/data"
 import { ServiceCard } from "../cards"
 import { Heading, Subheading } from "../helpers"
 
@@ -5,7 +6,9 @@ export const Services = () => {
   return (
     <section className="sm:px-10 px-3 py-10 mt-5 max-w-[1400px] w-full mx-auto"> 
 
-        <div className="text-center">
+        <div className="text-center"
+        
+        >
             <Subheading title="What We Do"/>
             <Heading title="Our Services"/>
 
@@ -19,9 +22,9 @@ export const Services = () => {
         </div>
 
         <div className="flex items-center flex-wrap justify-center gap-5 w-full mx-auto mt-5">
-          <ServiceCard/>
-          <ServiceCard/>
-          <ServiceCard/>
+        {servicesData.map((data, i) => (
+          <ServiceCard data={data} key={i} delay={(i % 4 + 2 ) * 50}/>
+        ))}
         </div>
 
     </section>

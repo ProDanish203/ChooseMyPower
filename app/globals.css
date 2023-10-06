@@ -22,6 +22,10 @@ body{
   min-height: 100vh;  
   width: 100%;
 }
+img{
+  user-select: none;
+  pointer-events: none;
+}
 
 .hide-img-bg{
   mix-blend-mode: multiply;
@@ -41,6 +45,20 @@ body{
   display: none;
   opacity: 0;
 }
+
+/* Footer Section Starts */
+.grid-5{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px 20px;
+}
+.footer-list-item{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+/* footer section Ends */
 
 /* Main Loader */
 .lds-roller {

@@ -19,6 +19,7 @@ const config: Config = {
       },
       backgroundImage:{
         "heroBanner": "linear-gradient(to right bottom, rgba(0,0,0,0), rgba(0,0,0, 0.9)), url('/images/banner.jpg')",
+        "footer": "linear-gradient(to right bottom, rgba(0,0,0,0.7), rgba(0,0,0, 0.8)), url('/images/footer.jpg')",
       },
       screens: {
         xs: "450px"
