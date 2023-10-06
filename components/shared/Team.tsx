@@ -1,3 +1,4 @@
+import { teamData } from "@/utils/data"
 import { TeamCard } from "../cards"
 import { Heading } from "../helpers"
 
@@ -12,9 +13,12 @@ export const Team = () => {
         </p>
 
         <div className="flex flex-wrap items-center justify-center sm:gap-10 gap-5 mt-5">
-            <TeamCard name="Kevin Jones" post="Energy Broker"/>
-            <TeamCard name="Kevin Jones" post="Energy Broker"/>
-            <TeamCard name="Kevin Jones" post="Energy Broker"/>
+        {teamData.map((data, i) => {
+          const delay = (i % 4 + 2 ) * 50;
+          return (
+            <TeamCard name={data.name} post={data.post} image={data.image} delay={delay}/>
+          )
+        })}
         </div>
 
     </section>

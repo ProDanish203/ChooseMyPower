@@ -127,6 +127,23 @@ export const servicesData = [
     },
 ]
 
+export const teamData = [
+    {
+        image: '/images/team/banner.jpg',
+        name: 'Kevin Jones',
+        post: 'Energy Broker'
+    },
+    {
+        image: '/images/team/banner.jpg',
+        name: 'Kevin Jones',
+        post: 'Energy Broker'
+    },
+    {
+        image: '/images/team/banner.jpg',
+        name: 'Kevin Jones',
+        post: 'Energy Broker'
+    },
+]
 
 export const solarData = {
     title: 'Solar (Consultation)',

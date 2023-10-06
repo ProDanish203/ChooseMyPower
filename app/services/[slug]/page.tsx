@@ -32,13 +32,20 @@ const Service = ({params}: {params: {slug:string}}) => {
     <div className='mt-10'> 
         <h6 className='text-xl text-orange-600'>Browse for other services: </h6>
 
-        <div className='bg-gray-300 mt-2 sm:px-4 px-2 py-4 max-w-[450px] rounded-md shadow-sm flex flex-col gap-4' >
-            {servicesData.map((service, i) => (
-            <Link href={`/services/${service.slug}`} className='bg-secondary p-2 rounded-md hover:bg-primary hover:text-white flex items-center gap-2 hover:gap-3'>
-                <i className='fas fa-angles-right'></i>
-                <p className='capitalize'>{service.slug.replace(/-/g, ' ')}</p>
-            </Link>
-            ))}
+        <div className='bg-gray-100 mt-2 sm:px-4 px-2 py-4 max-w-[450px] rounded-md shadow-sm flex flex-col gap-4' >
+            {servicesData.map((service, i) => {
+                const delay = (i % 4 + 2 ) * 50;
+                return (
+                <Link href={`/services/${service.slug}`} className='bg-gray-200 p-2 rounded-md hover:bg-primary hover:text-white flex items-center gap-2 hover:gap-3'
+                key={i}
+                data-aos="fade-up" data-aos-delay={`${delay}`} data-aos-duration="500"
+                
+                >
+                    <i className='fas fa-angles-right'></i>
+                    <p className='capitalize'>{service.slug.replace(/-/g, ' ')}</p>
+                </Link>
+                ) 
+            } )}
             
         </div>
 

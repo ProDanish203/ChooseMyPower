@@ -1,13 +1,17 @@
 import Image from 'next/image'
 
 interface Props{
+    image: string;
     name: string;
     post: string;
+    delay?: number;
 }
 
-export const TeamCard = ({name, post}: Props) => {
+export const TeamCard = ({name, post, image, delay}: Props) => {
   return (
-    <div className='hover:shadow-sm hover:scale-105 rounded-sm max-w-[350px] w-full'>
+    <div className='hover:shadow-sm hover:scale-105 rounded-sm max-w-[350px] w-full'
+    data-aos="fade-up" data-aos-delay={`${delay}`} data-aos-duration="1000"
+    >
         
         <div className='image-overlay-container relative sm:h-[450px] h-[300px]'>
             <div className='image-overlay absolute top-0 left-0 z-40 h-full w-full'>
@@ -31,7 +35,7 @@ export const TeamCard = ({name, post}: Props) => {
                 </div>
 
             </div>
-            <Image src="/images/banner.jpg" alt='team-1' fill
+            <Image src={image} alt={name} fill
             className='object-cover rounded-md'
             />
         </div>

@@ -24,12 +24,14 @@ export default function Home() {
 
       <section className="sm:px-10 px-3 py-10 ">
       <div className="flex flex-wrap gap-20 items-center justify-center">
-        <div className='max-w-[450px] w-full'>
+        <div className='max-w-[650px] w-full'>
           <Heading title='Contact Us'/>
           <ContactForm/>
         </div>
 
-        <div className="max-lg:hidden">
+        <div className="max-lg:hidden"
+        data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000"
+        >
           <div className="relative">
             <Image src="/images/contact-us.png" alt='contact-us' width={500} height={400}
             className="object-contain rounded-md"

@@ -9,14 +9,17 @@ const Solar = () => {
         
     <Heading title='Solar' center/>
 
-    <div className='flex flex-row-reverse max-md:flex-col items-center justify-center flex-wrap gap-5 '
-    >
-        <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'>
+    <div className='flex flex-row-reverse max-md:flex-col items-center justify-center flex-wrap gap-5 '>
+        <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'
+        data-aos="fade-left" data-aos-duration="1000"
+        >
             <Image src={solarData.image} alt={solarData.title} width={500} height={450}
             className='object-cover rounded-md'/>
         </div>
 
-        <div className='flex-1'>
+        <div className='flex-1'
+        data-aos="fade-right" data-aos-duration="1000"
+        >
             <h2 className='text-primary sm:text-3xl text-2xl font-semibold'>{solarData.title}</h2>
             {solarData.content.map((text, i) => (
                 <p className='text-gray-700 max-sm:text-sm mt-5' key={i}>{text}</p>     
@@ -26,7 +29,9 @@ const Solar = () => {
 
     <div className='flex max-md:flex-col items-center justify-center flex-wrap gap-5 '
     >
-        <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'>
+        <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'
+        data-aos="fade-right" data-aos-duration="1000"
+        >
             <Image src={solarSubData.image} alt={solarData.title} width={500} height={450}
             className='object-cover rounded-md'/>
         </div>

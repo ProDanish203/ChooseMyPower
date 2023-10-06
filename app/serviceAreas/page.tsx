@@ -6,11 +6,15 @@ const ServiceAreas = () => {
     <div className='bg-primary sm:px-10 px-3 py-10 min-h-[50vh] flex max-lg:flex-col flex-wrap items-center justify-start gap-2 w-full'>
 
         <div className='flex-1'>
-            <h2 className='max-lg:text-center text-bg text-5xl max-sm:text-3xl font-medium mb-3'>
+            <h2 className='max-lg:text-center text-bg text-5xl max-sm:text-3xl font-medium mb-3'
+            data-aos="fade-up" data-aos-duration="1000"
+            >
                 Our Sevice Areas
             </h2>
 
-            <h4 className='max-lg:text-center text-bg font-medium text-xl max-sm:text-lg'>
+            <h4 className='max-lg:text-center text-bg font-medium text-xl max-sm:text-lg'
+            data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000"
+            >
                 Find your desireable service area and compare electricity prices easily. 
             </h4>
         </div>
