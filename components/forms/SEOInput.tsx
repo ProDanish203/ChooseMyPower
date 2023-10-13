@@ -9,10 +9,13 @@ interface Props{
 
 export const SEOInput = ({type, placeholder, name, value, onChange}: Props) => {
     return (
-    <div className='w-full'>
+    <div className='w-full flex flex-col gap-2 justify-center'>
+
+        <label htmlFor="">{placeholder}</label>
+
         <input type={type}
         placeholder={placeholder}
-        className='border-[1px] border-gray-500 px-4 py-2.5 outline-none w-full'
+        className='border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
         required
         name={name}
         value={value}
