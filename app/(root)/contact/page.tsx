@@ -1,13 +1,10 @@
 import { ContactForm } from '@/components/forms'
 import { Heading } from '@/components/helpers';
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
 
   return (
     <section className='sm:px-10 px-3 pb-10 bg-bg pt-16 min-h-[100vh]'>
-        <ToastContainer/>        
 
         <div className='max-w-[1000px] w-full mx-auto'>
             <Heading title='Contact Us'/>

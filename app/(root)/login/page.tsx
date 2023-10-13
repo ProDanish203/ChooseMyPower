@@ -1,4 +1,5 @@
 "use client"
+import { Loader } from "@/components/helpers";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react"
@@ -28,8 +29,7 @@ const Login = () => {
             if(ok){
             router.push('/admin')
             }else{
-            console.log(error)
-            toast.error("Invalid Credentials");
+              toast.error(error);
             }
         })
 
@@ -42,19 +42,19 @@ const Login = () => {
     }
 
   return (
-    <main className=" px-[9%] max-lg:px-[4%] py-5 pt-24 mt-10">
+    <main className=" px-[9%] max-lg:px-[4%] py-5 pt-24">
       
       <section className='max-w-[450px] w-full mx-auto'>
         <h3 className='text-5xl max-md:text-3xl font-extrabold text-center mb-10 text-primary'
-        data-aos='fade-up' data-aos-delay='200' data-aos-duration='1200'
+        data-aos='fade-up' data-aos-duration='1200'
         >Login</h3>
 
-        <form onSubmit={handleLogin} className="bg-gray-400 flex flex-col justify-center gap-5 px-3 py-5" 
-        data-aos='fade-up' data-aos-delay='400' data-aos-duration='1200'
+        <form onSubmit={handleLogin} className="bg-gray-400 flex flex-col justify-center rounded-md gap-5 px-3 py-5" 
+        data-aos='fade-up' data-aos-delay='100' data-aos-duration='1200'
         >
 
           <div className="w-full flex flex-col gap-2">
-            <label htmlFor="email" className="text-primary">Email Address</label>
+            <label htmlFor="email" className="text-primary font-semibold">Email Address</label>
 
             <input type="email" placeholder='Email Address' required id="email" autoComplete="off"
             className='px-3 py-2 rounded-md w-full bg-neutral-800 outline-none text-white'
@@ -64,7 +64,7 @@ const Login = () => {
           </div>
 
           <div className="w-full flex flex-col gap-2">
-            <label htmlFor="password" className="text-white">Password</label>
+            <label htmlFor="password" className="text-primary font-semibold">Password</label>
 
             <input type="password" placeholder='Password' required id="password" autoComplete="off"
             className='px-3 py-2 rounded-md w-full bg-neutral-800 outline-none text-white'
@@ -75,8 +75,8 @@ const Login = () => {
 
           <div className="w-full">
             <button type="submit" disabled={loading}
-            className="bg-accent hover:bg-primary text-white py-2.5 rounded-md w-full mt-2"
-            >Login</button>
+            className="bg-primary text-white text-lg py-2.5 rounded-md w-full mt-2"
+            >{loading ? <Loader dark={false}/>: "Login"}</button>
           </div>
 
         </form>

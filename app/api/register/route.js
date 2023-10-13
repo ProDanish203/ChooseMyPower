@@ -6,7 +6,6 @@ export const POST = async (req) => {
     try{
         connectDb();
         const {email, password} = await req.json();
-        console.log(email, password)
         const hashPass = await bcrypt.hash(password, 10)
         if(!hashPass) return new Response(`Failed to store password`, {status: 500});
 
