@@ -19,7 +19,7 @@ export const Team = ({tagLine}: Props) => {
         {teamData.map((data, i) => {
           const delay = (i % 4 + 2 ) * 50;
           return (
-            <TeamCard name={data.name} post={data.post} image={data.image} delay={delay}/>
+            <TeamCard name={data.name} key={i} post={data.post} image={data.image} delay={delay}/>
           )
         })}
         </div>

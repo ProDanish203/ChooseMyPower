@@ -35,7 +35,7 @@ const ServiceAreas = () => {
         </p>
 
         <p className='mt-4 text-gray-700 md:text-[17px]'>
-        On our marketplace, you won't find providers with a history of dishonest business practices or misleading terms. We work with top-notch power companies in Texas to ensure you receive the service you pay for and help you find lower electric rates. 
+        On our marketplace, you wont find providers with a history of dishonest business practices or misleading terms. We work with top-notch power companies in Texas to ensure you receive the service you pay for and help you find lower electric rates. 
         </p>
     </div>
 
