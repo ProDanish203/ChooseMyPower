@@ -59,7 +59,7 @@ export const Header = () => {
           className='flex flex-col items-start rounded-md w-[300px] bg-primary px-5 py-3 absolute right-1 top-[110%] gap-4 md:hidden shadow-sm'>
           {navLinks.map((link, i) => (
             <Link href={link.path} key={i}
-            className={`text-bg font-semibold text-xl`}
+            className={`text-bg text-lg`}
             >
               {link.name}
             </Link>

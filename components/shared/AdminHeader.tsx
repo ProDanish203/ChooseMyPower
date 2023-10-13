@@ -19,7 +19,7 @@ export const AdminHeader = () => {
 
         {/* Desktop nav */}
         <nav
-        className='flex items-center justify-between gap-4 max-md:hidden'>
+        className='flex items-center justify-between gap-4 max-lg:hidden'>
           {adminLinks.map((link, i) => {
             const delay = (i % 4 + 2 ) * 50;
             return (
@@ -34,7 +34,7 @@ export const AdminHeader = () => {
           )}
         </nav>
 
-        <div className='md:hidden'
+        <div className='lg:hidden'
         data-aos="fade-left" data-aos-delay='200' data-aos-duration="1000"
         >
           <i className={`fas ${mobileNav ? 'fa-times': 'fa-bars'} text-2xl text-bg cursor-pointer`}
@@ -45,10 +45,10 @@ export const AdminHeader = () => {
         {mobileNav && (
           <nav
           data-aos="fade-left" data-aos-delay='200' data-aos-duration="700"
-          className='flex flex-col items-start rounded-md w-[300px] bg-primary px-5 py-3 absolute right-1 top-[110%] gap-4 md:hidden shadow-sm'>
+          className='flex flex-col items-start rounded-md w-[300px] bg-primary px-5 py-3 absolute right-1 top-[110%] gap-4 lg:hidden shadow-sm'>
           {adminLinks.map((link, i) => (
             <Link href={link.path} key={i}
-            className={`text-bg font-semibold text-xl`}
+            className={`text-bg text-lg`}
             >
               {link.name}
             </Link>
