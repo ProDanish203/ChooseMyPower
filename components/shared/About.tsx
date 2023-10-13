@@ -1,7 +1,14 @@
 import Image from 'next/image'
 import { Heading, Subheading } from '../helpers'
 
-export const About = () => {
+interface Props{
+  heading: string;
+  para1: string;
+  para2: string;
+}
+
+
+export const About = ({heading, para1, para2}: Props) => {
   return (
     <section className='sm:px-10 px-3 py-10 max-w-[1400px] w-full mx-auto'>
       <div className='flex flex-wrap max-lg:flex-col items-center justify-center gap-10'>
@@ -9,15 +16,11 @@ export const About = () => {
         <div className='flex-1'>
 
         <Subheading title='About Us'/>
-        <Heading title='RELIABLE ENERGY BROKER AND CONSULTANT' direction='right'/>
+        <Heading title={heading} direction='right'/>
 
-        <p className='mt-5 text-gray-700 sm:text-lg'>
-        As a leading energy broker, we've helped our clients save money on electricity and gas bills. We help businesses, whether large or small, create energy plans for their commercial electricity and gas needs. We have the experience and expertise to serve customers across multiple states and commodities.
-        </p>
+        <p className='mt-5 text-gray-700 sm:text-lg'>{para1}</p>
         <br />
-        <p className='text-gray-700 sm:text-lg'>
-        At Choose My Power LLC, we compare energy suppliers and get the best rate for you. In addition, we strive to offer customers customized solutions to meet a broad range of their energy needs.
-        </p>
+        <p className='text-gray-700 sm:text-lg'>{para2}</p>
 
         <div className='mt-4'>
 

@@ -16,6 +16,7 @@ export const SEOInput = ({type, placeholder, name, value, onChange}: Props) => {
         <input type={type}
         placeholder={placeholder}
         className='border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+        autoComplete="off"
         required
         name={name}
         value={value}

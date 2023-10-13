@@ -1,30 +1,29 @@
 "use server"
 import { connectDb } from "../../config/db";
-import HomeModel from "../../models/Home";
+import SolarModel from "../../models/Solar";
 import { revalidatePath } from "next/cache";
 
 interface Props{
     id?: string,
     dataFor?: string,
-    heading: string,
-    tagLine: string,
-    aboutHeading: string,
-    aboutPara1: string,
-    aboutPara2: string,
-    expertsTagline: string,
-    servicesTagline: string,
-    footerPara: string,
     path: string
+    heading: String,
+    para1: String,
+    para2: String,
+    subHeading1: String,
+    subPara1: String,
+    subHeading2: String,
+    subPara2: String,
 }
 
-export const getHomeSeo = async (dataFor: string) => {
+export const getSolarSeo = async (dataFor: string) => {
     try{
         await connectDb();
 
-        const home = await HomeModel.findOne({dataFor});
+        const solar = await SolarModel.findOne({dataFor});
 
-        if(home){
-            return {data: home, success: true, message: "SEO data fetched successfully"}
+        if(solar){
+            return {data: solar, success: true, message: "SEO data fetched successfully"}
         }else{
             return {success: false, message: "Error occured while while SEO data"}
         }
@@ -34,15 +33,15 @@ export const getHomeSeo = async (dataFor: string) => {
     }
 }
 
-export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
+export const createSolar = async ({heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2, path}: Props) => {
     try{
         await connectDb();
 
-        const home = await HomeModel.create({
-            heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara,
+        const solar = await SolarModel.create({
+            heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2,
         })
 
-        if(home){
+        if(solar){
             revalidatePath(path);
             return {success: true, message: "SEO data added successfully"}
         }else{
@@ -54,22 +53,13 @@ export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, ab
     }
 }
 
-export const updateHome = async ({id, dataFor, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
+export const updateSolar = async ({id, dataFor, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2, path}: Props) => {
     try{
         await connectDb();
 
-        const result = await HomeModel.findOneAndUpdate(
+        const result = await SolarModel.findOneAndUpdate(
             {dataFor},
-            {
-              heading,
-              tagLine,
-              aboutHeading,
-              aboutPara1,
-              aboutPara2,
-              expertsTagline,
-              servicesTagline,
-              footerPara,
-            },
+            { heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2},
             { new: true } // This option ensures the updated document is returned
           );
 

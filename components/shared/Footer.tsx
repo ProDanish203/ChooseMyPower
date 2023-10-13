@@ -1,9 +1,13 @@
+import { getHomeSeo } from '@/lib/actions/SEO/HomePage'
 import { navLinks, servicesData } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-export const Footer = () => {
+export const Footer = async () => {
+
+  const {data} = await getHomeSeo("home")
+  const {footerPara} = data;
   return (
     <section>
       <footer className='sm:px-10 relative px-3 py-5 sm:pb-20 bg-footer bg-center bg-no-repeat bg-cover w-full'>
@@ -13,9 +17,7 @@ export const Footer = () => {
           <div className='relative'>
               <Image src='/images/logo.png' alt="logo" width={250} height={200} className='object-cover' />
           </div>
-          <p className='text-bg max-sm:text-sm'>
-          As a leading energy broker, we've helped our clients save money on electricity and gas bills. We help businesses, whether large or small, create energy plans for their commercial electricity and gas needs.
-          </p>
+          <p className='text-bg max-sm:text-sm'>{footerPara}</p>
 
           <div className='flex items-center justify-start flex-wrap gap-2 mt-4'>
             <div className='bg-orange-600 text-white rounded-full w-[30px] h-[30px] flex items-center justify-center'>

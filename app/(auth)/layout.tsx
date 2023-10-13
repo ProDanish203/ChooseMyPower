@@ -1,4 +1,3 @@
-import { Header } from '@/components/shared'
 import '../globals.css'
 import type { Metadata } from 'next'
 import '@radix-ui/themes/styles.css';
@@ -10,6 +9,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { AdminHeader } from '@/components/shared/AdminHeader';
 
 export const metadata: Metadata = {
   title: 'Choose My Power | Admin',
@@ -39,7 +39,7 @@ export default async function RootLayout({
         <Theme accentColor="blue" grayColor="sand" radius="large" scaling="95%">
   
         <div>
-          <Header/>
+          <AdminHeader/>
         </div>  
 
         <div className='bg-bg pt-16 min-h-[100vh]'>
