@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 
 interface Props{
     id?: string,
+    dataFor?: string,
     heading: string,
     tagLine: string,
     aboutHeading: string,
@@ -14,6 +15,23 @@ interface Props{
     servicesTagline: string,
     footerPara: string,
     path: string
+}
+
+export const getHomeSeo = async (dataFor: string) => {
+    try{
+        await connectDb();
+
+        const home = await HomeModel.find({dataFor});
+
+        if(home){
+            return {data: home, success: true, message: "SEO data fetched successfully"}
+        }else{
+            return {success: false, message: "Error occured while while SEO data"}
+        }
+
+    }catch(error:any){
+        throw new Error(`Failed to fetch SEO data: ${error.message}`)
+    }
 }
 
 export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
@@ -32,16 +50,16 @@ export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, ab
         }
 
     }catch(error:any){
-        throw new Error(`Failed to create prompt: ${error.message}`)
+        throw new Error(`Failed to create Home SEO data: ${error.message}`)
     }
 }
 
-export const updateHome = async ({id, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
+export const updateHome = async ({id, dataFor, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
     try{
         await connectDb();
 
-        const result = await HomeModel.findByIdAndUpdate(
-            id,
+        const result = await HomeModel.findOneAndUpdate(
+            {dataFor },
             {
               heading,
               tagLine,
@@ -57,12 +75,12 @@ export const updateHome = async ({id, heading, tagLine, aboutHeading, aboutPara1
 
         if(result){
             revalidatePath(path);
-            return {success: true, message: "SEO data added successfully"}
+            return {success: true, message: "SEO data updated successfully"}
         }else{
-            return {success: false, message: "Error occured while adding SEO data"}
+            return {success: false, message: "Error occured while updating SEO data"}
         }
 
     }catch(error:any){
-        throw new Error(`Failed to create prompt: ${error.message}`)
+        throw new Error(`Failed to update Home SEO data: ${error.message}`)
     }
 }
