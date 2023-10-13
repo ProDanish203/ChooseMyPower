@@ -45,10 +45,11 @@ export const AdminHeader = () => {
         {mobileNav && (
           <nav
           data-aos="fade-left" data-aos-delay='200' data-aos-duration="700"
-          className='flex flex-col items-start rounded-md w-[300px] bg-primary px-5 py-3 absolute right-1 top-[110%] gap-4 lg:hidden shadow-sm'>
+          className='flex flex-col items-start rounded-md w-[300px] white-bg px-5 py-3 absolute right-1 top-[110%] gap-4 lg:hidden shadow-sm'>
           {adminLinks.map((link, i) => (
             <Link href={link.path} key={i}
             className={`text-bg text-lg`}
+            onClick={() => setMobileNav(false)}
             >
               {link.name}
             </Link>

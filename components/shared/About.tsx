@@ -27,32 +27,24 @@ export const About = ({heading, para1, para2}: Props) => {
         <Subheading title='What will you get?'/>
 
         <div className='flex items-center justify-around sm:gap-5 gap-2 mt-2 w-full'>  
-            <div className='flex items-center gap-2 max-sm:text-sm w-full hover:text-bg bg-secondary  hover:bg-orange-600 rounded-md py-2 px-4'
-            data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200"
-            >
+            <div className='flex items-center gap-2 max-sm:text-sm w-full hover:text-bg bg-secondary  hover:bg-orange-600 rounded-md py-2 px-4'>
               <i className='fas fa-headphones text-lg'></i>
               <p>Excellent Support</p>
             </div>
 
-            <div className='flex items-center gap-2 max-sm:text-sm w-full hover:text-bg bg-secondary  hover:bg-orange-600 rounded-md py-2 px-4'
-            data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200"
-            >
+            <div className='flex items-center gap-2 max-sm:text-sm w-full hover:text-bg bg-secondary  hover:bg-orange-600 rounded-md py-2 px-4'>
               <i className='fas fa-dollar text-lg'></i>
               <p>Guaranteed Savings</p>
             </div>
         </div>
 
         <div className='flex items-center justify-around sm:gap-5 gap-2 mt-2 w-full'>  
-            <div className='flex items-center gap-2 max-sm:text-sm hover:text-bg w-full bg-secondary hover:bg-orange-600 rounded-md py-2 px-4'
-            data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200"
-            >
+            <div className='flex items-center gap-2 max-sm:text-sm hover:text-bg w-full bg-secondary hover:bg-orange-600 rounded-md py-2 px-4'>
               <i className='fas fa-gear text-lg'></i>
               <p>Customized Solutions</p>
             </div>
 
-            <div className='flex items-center gap-2 max-sm:text-sm hover:text-bg w-full  bg-secondary hover:bg-orange-600 rounded-md py-2 px-4'
-            data-aos="fade-up" data-aos-delay="250" data-aos-duration="1200"
-            >
+            <div className='flex items-center gap-2 max-sm:text-sm hover:text-bg w-full  bg-secondary hover:bg-orange-600 rounded-md py-2 px-4'>
               <i className='fas fa-handshake text-lg'></i>
               <p>Trustable Experience</p>
             </div>

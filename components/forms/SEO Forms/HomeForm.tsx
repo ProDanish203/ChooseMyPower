@@ -68,7 +68,7 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
 
   return (
     <form onSubmit={handleSubmit} 
-    className='py-3 px-4 rounded-md bg-gray-200 flex flex-col gap-4 justify-center max-w-[1400px] w-full mx-auto'
+    className='py-3 px-4 rounded-md bg-blackAccent flex flex-col gap-4 justify-center max-w-[1400px] w-full mx-auto'
     >
         <SEOInput type='text' placeholder='Main Heading' name='heading' value={formData.heading} onChange={handleChange}/>
 
@@ -79,12 +79,12 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
         <div className='w-full flex flex-wrap items-center justify-between gap-3'>
 
             <div className='md:max-w-[48%] w-full flex flex-col gap-2 justify-center'>
-                <label htmlFor="">About Paragraph 1</label>
+                <label htmlFor="" className='text-white text-lg'>About Paragraph 1</label>
 
                 <textarea
                 rows={4}
                 placeholder="About Paragraph 1"
-                className='resize-none border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+                className='resize-none border-[1px] rounded-md bg-neutral-900 text-white border-gray-500 px-4 py-2.5 outline-none w-full'
                 required
                 name="aboutPara1"
                 value={formData.aboutPara1}
@@ -93,12 +93,12 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
             </div>
 
             <div className='md:max-w-[50%] w-full flex flex-col gap-2 justify-center'>
-                <label htmlFor="">About Paragraph 2</label>
+                <label htmlFor="" className='text-white text-lg'>About Paragraph 2</label>
 
                 <textarea
                 rows={4}
                 placeholder="About Paragraph 2"
-                className='resize-none border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+                className='resize-none border-[1px] rounded-md bg-neutral-900 text-white border-gray-500 px-4 py-2.5 outline-none w-full'
                 required
                 name="aboutPara2"
                 value={formData.aboutPara2}
@@ -113,12 +113,12 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
         <SEOInput type='text' placeholder='Services Section Tagline' name='servicesTagline' value={formData.servicesTagline} onChange={handleChange}/>
  
         <div className='w-full flex flex-col gap-2 justify-center'>
-            <label htmlFor="">Footer Paragraph</label>
+            <label htmlFor="" className='text-white text-lg'>Footer Paragraph</label>
 
             <textarea
             rows={4}
             placeholder="Foter Paragraph"
-            className='resize-none border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+            className='resize-none border-[1px] rounded-md bg-neutral-900 text-white border-gray-500 px-4 py-2.5 outline-none w-full'
             required
             name="footerPara"
             value={formData.footerPara}
@@ -128,7 +128,7 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
 
         <div className='my-5'>
             <button type='submit'
-            className='bg-primary py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
+            className='bg-accent py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
                 Update SEO
             </button>
         </div>

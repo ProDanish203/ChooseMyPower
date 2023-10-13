@@ -1,12 +1,13 @@
 import { getHomeSeo } from '@/lib/actions/SEO/HomePage'
-import { navLinks, servicesData } from '@/utils/data'
+import { getServicesSeo } from '@/lib/actions/SEO/ServicesPage'
+import { navLinks } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 export const Footer = async () => {
 
-  const {data} = await getHomeSeo("home")
+  const {data} = await getHomeSeo("home");
+  const service = await getServicesSeo();
   const {footerPara} = data;
   return (
     <section>
@@ -55,10 +56,10 @@ export const Footer = async () => {
       <div>
         <h4 className="text-2xl font-semibold text-bg">Services</h4>
         <div>
-        {servicesData.map((service, i) => (
-          <Link href={`/services/${service.slug}`} className="footer-list-item gap-2 hover:gap-3" key={i}>
+        {service.data?.map((x, i) => (
+          <Link href={`/services/${x._id}`} className="footer-list-item gap-2 hover:gap-3" key={i}>
             <i className='fas fa-angles-right text-orange-600'></i>
-            <span className='text-white capitalize'>{service.slug}</span>
+            <span className='text-white capitalize'>{x.title}</span>
           </Link>
         ))}
         </div>

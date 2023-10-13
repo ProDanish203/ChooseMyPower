@@ -36,13 +36,13 @@ export default async function RootLayout({
       <Provider>
 
         <AOS/>
-        <Theme accentColor="blue" grayColor="sand" radius="large" scaling="95%">
+        <Theme accentColor="gray" grayColor="sand" radius="large" scaling="95%">
   
         <div>
           <AdminHeader/>
         </div>  
 
-        <div className='bg-bg pt-16 min-h-[100vh]'>
+        <div className='bg-primary pt-16 min-h-[100vh]'>
           {children}
         </div>
 

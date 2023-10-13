@@ -60,6 +60,7 @@ export const Header = () => {
           {navLinks.map((link, i) => (
             <Link href={link.path} key={i}
             className={`text-bg text-lg`}
+            onClick={() => setMobileNav(false)}
             >
               {link.name}
             </Link>

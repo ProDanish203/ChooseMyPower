@@ -1,6 +1,5 @@
 import { Heading } from '@/components/helpers';
 import { getSolarSeo } from '@/lib/actions/SEO/SolarPage';
-import { solarData, solarSubData } from '@/utils/data';
 import Image from 'next/image';
 import React from 'react'
 import { toast } from 'react-toastify';
@@ -21,7 +20,7 @@ const Solar = async () => {
         <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'
         data-aos="fade-left" data-aos-duration="1000"
         >
-            <Image src={solarData.image} alt={heading} width={500} height={450}
+            <Image src='/images/about-us.png' alt={heading} width={500} height={450}
             className='object-cover rounded-md'/>
         </div>
 
@@ -40,7 +39,7 @@ const Solar = async () => {
         <div className='flex-1 relative max-w-[500px] w-full mx-auto flex items-center h-[450px]'
         data-aos="fade-right" data-aos-duration="1000"
         >
-            <Image src={solarSubData.image} alt={heading} width={500} height={450}
+            <Image src='/images/about-us.png' alt={heading} width={500} height={450}
             className='object-cover rounded-md'/>
         </div>
 

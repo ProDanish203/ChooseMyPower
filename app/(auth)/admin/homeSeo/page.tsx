@@ -10,7 +10,7 @@ const HomeSeo = async () => {
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
       <section className="max-w-[1400px] w-full mx-auto">
 
-        <h3 className="text-center text-primary text-5xl max-sm:text-3xl font-extrabold">Home Page SEO</h3>
+        <h3 className="text-center text-white text-5xl max-sm:text-3xl font-extrabold">Home Page SEO</h3>
 
         <div className="mt-10">
           <HomeForm id={_id} heading={heading} tagLine={tagLine} aboutHeading={aboutHeading} aboutPara1={aboutPara1} aboutPara2={aboutPara2} expertsTagline={expertsTagline} servicesTagline={servicesTagline} footerPara={footerPara}/>
