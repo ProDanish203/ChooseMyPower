@@ -127,7 +127,8 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
             </div>
 
         <div className='my-5'>
-            <button className='bg-primary py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
+            <button type='submit'
+            className='bg-primary py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
                 Update SEO
             </button>
         </div>

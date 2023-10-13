@@ -3,17 +3,17 @@ import { usePathname } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { SEOInput } from "./SEOInput";
 import { toast } from "react-toastify";
-import { createSolar } from "@/lib/actions/SEO/SolarPage";
+import { updateSolar } from "@/lib/actions/SEO/SolarPage";
 
 interface Props{
-  id?: string;
-  heading?: string;
-  para1?: string;
-  para2?: string;
-  subHeading1?: string;
-  subHeading2?: string;
-  subPara1?: string;
-  subPara2?: string;
+  id: string;
+  heading: string;
+  para1: string;
+  para2: string;
+  subHeading1: string;
+  subHeading2: string;
+  subPara1: string;
+  subPara2: string;
 }
 
 export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2}: Props) => {
@@ -42,9 +42,9 @@ export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, 
     e.preventDefault();
     try{
         
-        const {success, message } = await createSolar({
-            // id,
-            // dataFor: 'home',
+        const {success, message } = await updateSolar({
+            id,
+            dataFor: 'solar',
             heading: formData.heading,
             para1: formData.para1,
             para2: formData.para2,
@@ -106,6 +106,44 @@ export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, 
     <SEOInput type='text' placeholder='Sub Heading 1' name='subHeading1' value={formData.subHeading1} onChange={handleChange}/>
     <SEOInput type='text' placeholder='Sub Heading 2' name='subHeading2' value={formData.subHeading2} onChange={handleChange}/>
       
+    <div className='w-full flex flex-wrap items-center justify-between gap-3'>
+
+      <div className='md:max-w-[48%] w-full flex flex-col gap-2 justify-center'>
+          <label htmlFor="">Solar Sub-Paragraph 1</label>
+
+          <textarea
+          rows={4}
+          placeholder="Solar Sub-Paragraph 1"
+          className='resize-none border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+          required
+          name="subPara1"
+          value={formData.subPara1}
+          onChange={handleChange}
+          ></textarea>
+      </div>
+
+      <div className='md:max-w-[50%] w-full flex flex-col gap-2 justify-center'>
+          <label htmlFor="">Solar Sub-Paragraph 2</label>
+
+          <textarea
+          rows={4}
+          placeholder="Solar Sub-Paragraph 2"
+          className='resize-none border-[1px] rounded-md border-gray-500 px-4 py-2.5 outline-none w-full'
+          required
+          name="subPara2"
+          value={formData.subPara2}
+          onChange={handleChange}
+          ></textarea>
+      </div>
+
+    </div>
+
+    <div className='my-5'>
+      <button type="submit" 
+      className='bg-primary py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
+        Update SEO
+      </button>
+    </div>
 
 
     </form>
