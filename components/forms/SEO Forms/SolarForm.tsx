@@ -1,5 +1,4 @@
 "use client"
-import { usePathname } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { SEOInput } from "./SEOInput";
 import { toast } from "react-toastify";
@@ -36,8 +35,6 @@ export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, 
       });
   };
 
-  const pathname = usePathname();
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try{
@@ -52,7 +49,6 @@ export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, 
             subHeading2: formData.subHeading2,
             subPara1: formData.subPara1,
             subPara2: formData.subPara2,
-            path: pathname
         });
 
         if(success) return toast.success("Data updated succesfully");

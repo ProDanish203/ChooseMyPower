@@ -1,6 +1,5 @@
 "use client"
 import { createService, updateService } from "@/lib/actions/SEO/ServicesPage";
-import { usePathname } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import { SEOInput } from "./SEOInput";
@@ -31,8 +30,6 @@ export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
         });
     };
 
-    const pathname = usePathname();
-
     const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try{
@@ -43,7 +40,6 @@ export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
             para1: formData.para1,
             para2: formData.para2,
             image: formData.image,
-            path: pathname
         });
 
         if(success) return toast.success("Data updated succesfully");

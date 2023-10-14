@@ -14,7 +14,6 @@ interface Props{
     expertsTagline: string,
     servicesTagline: string,
     footerPara: string,
-    path: string
 }
 
 export const getHomeSeo = async (dataFor: string) => {
@@ -34,7 +33,7 @@ export const getHomeSeo = async (dataFor: string) => {
     }
 }
 
-export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
+export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara}: Props) => {
     try{
         await connectDb();
 
@@ -43,7 +42,7 @@ export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, ab
         })
 
         if(home){
-            revalidatePath(path);
+            revalidatePath('/');
             return {success: true, message: "SEO data added successfully"}
         }else{
             return {success: false, message: "Error occured while adding SEO data"}
@@ -54,7 +53,7 @@ export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, ab
     }
 }
 
-export const updateHome = async ({id, dataFor, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara, path}: Props) => {
+export const updateHome = async ({dataFor, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara}: Props) => {
     try{
         await connectDb();
 

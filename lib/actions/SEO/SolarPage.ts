@@ -6,7 +6,6 @@ import { revalidatePath } from "next/cache";
 interface Props{
     id?: string,
     dataFor?: string,
-    path: string
     heading: String,
     para1: String,
     para2: String,
@@ -33,7 +32,7 @@ export const getSolarSeo = async (dataFor: string) => {
     }
 }
 
-export const createSolar = async ({heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2, path}: Props) => {
+export const createSolar = async ({heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2 }: Props) => {
     try{
         await connectDb();
 
@@ -42,7 +41,7 @@ export const createSolar = async ({heading, para1, para2, subHeading1, subHeadin
         })
 
         if(solar){
-            revalidatePath(path);
+            revalidatePath('/solar');
             return {success: true, message: "SEO data added successfully"}
         }else{
             return {success: false, message: "Error occured while adding SEO data"}
@@ -53,7 +52,7 @@ export const createSolar = async ({heading, para1, para2, subHeading1, subHeadin
     }
 }
 
-export const updateSolar = async ({id, dataFor, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2, path}: Props) => {
+export const updateSolar = async ({id, dataFor, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2}: Props) => {
     try{
         await connectDb();
 
@@ -61,10 +60,10 @@ export const updateSolar = async ({id, dataFor, heading, para1, para2, subHeadin
             {dataFor},
             { heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2},
             { new: true } // This option ensures the updated document is returned
-          );
+        );
 
         if(result){
-            revalidatePath(path);
+            revalidatePath('/solar');
             return {success: true, message: "SEO data updated successfully"}
         }else{
             return {success: false, message: "Error occured while updating SEO data"}

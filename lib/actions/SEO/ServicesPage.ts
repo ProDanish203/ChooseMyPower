@@ -6,7 +6,6 @@ import { revalidatePath } from "next/cache";
 interface Props{
     id?: string,
     dataFor?: string,
-    path: string;
     title: string;
     para1: string;
     para2: string;
@@ -45,7 +44,7 @@ export const getService = async (id:string) => {
     }
 }
 
-export const createService = async ({title, para1, para2, image, path}: Props) => {
+export const createService = async ({title, para1, para2, image}: Props) => {
     try{
         await connectDb();
         const service = await ServiceModel.create({
@@ -53,7 +52,7 @@ export const createService = async ({title, para1, para2, image, path}: Props) =
         })
 
         if(service){
-            revalidatePath(path);
+            revalidatePath("/");
             return {success: true, message: "SEO data added successfully"}
         }else{
             return {success: false, message: "Error occured while adding SEO data"}
@@ -64,7 +63,7 @@ export const createService = async ({title, para1, para2, image, path}: Props) =
     }
 }
 
-export const updateService = async ({id, dataFor, title, image, para1, para2,  path}: Props) => {
+export const updateService = async ({id, dataFor, title, image, para1, para2 }: Props) => {
     try{
         await connectDb();
         const result = await ServiceModel.findByIdAndUpdate(
@@ -74,7 +73,7 @@ export const updateService = async ({id, dataFor, title, image, para1, para2,  p
         );
 
         if(result){
-            revalidatePath(path);
+            revalidatePath('/');
             return {success: true, message: "SEO data updated successfully"}
         }else{
             return {success: false, message: "Error occured while updating SEO data"}

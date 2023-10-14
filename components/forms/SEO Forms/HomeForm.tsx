@@ -3,7 +3,6 @@ import { FormEvent, useState } from 'react'
 import { SEOInput } from './SEOInput'
 import { toast } from 'react-toastify'
 import { createHome, updateHome } from '@/lib/actions/SEO/HomePage'
-import { usePathname } from 'next/navigation'
 
 interface Props{
     id: string;
@@ -38,9 +37,6 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
         });
     };
 
-    const pathname = usePathname();
-    console.log(pathname)
-
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         try{
@@ -56,7 +52,6 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
                 expertsTagline: formData.expertsTagline,
                 servicesTagline: formData.servicesTagline,
                 footerPara: formData.footerPara,
-                path: pathname
             });
 
             if(success) return toast.success("Data updated succesfully");
