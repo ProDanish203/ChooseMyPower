@@ -39,6 +39,7 @@ export const HomeForm = ({id, heading, tagLine, aboutHeading, aboutPara1, aboutP
     };
 
     const pathname = usePathname();
+    console.log(pathname)
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();

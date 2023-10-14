@@ -74,7 +74,7 @@ export const updateHome = async ({id, dataFor, heading, tagLine, aboutHeading, a
           );
 
         if(result){
-            revalidatePath(path);
+            revalidatePath('/');
             return {success: true, message: "SEO data updated successfully"}
         }else{
             return {success: false, message: "Error occured while updating SEO data"}

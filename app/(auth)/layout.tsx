@@ -22,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const session = await getServerSession(GET)
+  const session = await getServerSession(GET) 
   // @ts-ignore
   if(!session?.user) redirect("/login")
 
