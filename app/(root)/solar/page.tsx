@@ -1,12 +1,12 @@
 import { Heading } from '@/components/helpers';
-import { getSolarSeo } from '@/lib/actions/SEO/SolarPage';
+import { getSolarData } from '@/lib/actions/SEO/SolarPage';
 import Image from 'next/image';
 import React from 'react'
 import { toast } from 'react-toastify';
 
 const Solar = async () => {
 
-    const {data, success} = await getSolarSeo("solar")
+    const {data, success} = await getSolarData("solar")
     const { _id, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2} = data;
   
     if(!success) return toast.error("Something went wrong!");

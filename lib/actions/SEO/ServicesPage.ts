@@ -12,7 +12,7 @@ interface Props{
     image: string;
 }
 
-export const getServicesSeo = async () => {
+export const getServicesData = async () => {
     try{
         await connectDb();
         const service = await ServiceModel.find();

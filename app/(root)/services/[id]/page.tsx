@@ -1,6 +1,5 @@
 import { Heading } from '@/components/helpers'
-import { getService, getServicesSeo } from '@/lib/actions/SEO/ServicesPage';
-import { servicesData } from '@/utils/data'
+import { getService, getServicesData } from '@/lib/actions/SEO/ServicesPage';
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -9,7 +8,7 @@ const Service = async ({params}: {params: {id:string}}) => {
     const {id} = params;
     const {data} = await getService(id); 
     const { title, image, para1, para2 } = data;
-    const allServices = await getServicesSeo();
+    const allServices = await getServicesData();
 
   return (
     <section className='sm:px-10 px-3 py-10 mt-5 max-w-[1400px] w-full mx-auto'>

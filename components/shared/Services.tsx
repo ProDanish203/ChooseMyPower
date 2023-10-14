@@ -1,6 +1,6 @@
 import { ServiceCard } from "../cards"
 import { Heading, Subheading } from "../helpers"
-import { getServicesSeo } from "@/lib/actions/SEO/ServicesPage";
+import { getServicesData } from "@/lib/actions/SEO/ServicesPage";
 
 interface Props{
   tagLine: string;
@@ -8,7 +8,7 @@ interface Props{
 
 export const Services = async ({tagLine}: Props) => {
 
-  const {data, success} = await getServicesSeo();
+  const {data, success} = await getServicesData();
 
   return (
     <section className="sm:px-10 px-3 py-10 mt-5 max-w-[1400px] w-full mx-auto"> 

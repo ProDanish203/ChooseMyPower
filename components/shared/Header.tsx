@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <header className={`bg-primary sm:px-10 px-3 py-3 flex items-center justify-between w-screen fixed top-0 left-0 z-40 shadow-sm`}>
         <Link href="/" className='relative w-[200px] h-[40px]'>
-          <Image src="/images/logo.png" alt='choose-my-power' width={350} height={150} 
+          <Image src="https://res.cloudinary.com/dzxx9hlcr/image/upload/v1697314371/choosemypower/ucgd94tvged4esinbeeg.png" alt='choose-my-power' width={350} height={150} 
           className='object-contain absolute -top-5 left-0'
           data-aos="fade-right" data-aos-delay="100" data-aos-duration="1200"
           />

@@ -15,7 +15,7 @@ interface Props{
     subPara2: String,
 }
 
-export const getSolarSeo = async (dataFor: string) => {
+export const getSolarData = async (dataFor: string) => {
     try{
         await connectDb();
 

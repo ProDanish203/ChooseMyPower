@@ -1,5 +1,5 @@
 import { getHomeSeo } from '@/lib/actions/SEO/HomePage'
-import { getServicesSeo } from '@/lib/actions/SEO/ServicesPage'
+import { getServicesData } from '@/lib/actions/SEO/ServicesPage'
 import { navLinks } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,7 +7,7 @@ import Link from 'next/link'
 export const Footer = async () => {
 
   const {data} = await getHomeSeo("home");
-  const service = await getServicesSeo();
+  const service = await getServicesData();
   const {footerPara} = data;
   return (
     <section>
@@ -16,7 +16,7 @@ export const Footer = async () => {
 
       <div>
           <div className='relative'>
-              <Image src='/images/logo.png' alt="logo" width={250} height={200} className='object-cover' />
+              <Image src='https://res.cloudinary.com/dzxx9hlcr/image/upload/v1697314371/choosemypower/ucgd94tvged4esinbeeg.png' alt="logo" width={250} height={200} className='object-cover' />
           </div>
           <p className='text-bg max-sm:text-sm'>{footerPara}</p>
 
