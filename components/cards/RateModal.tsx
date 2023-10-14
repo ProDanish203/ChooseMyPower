@@ -1,0 +1,110 @@
+"use client"
+import useSWR from "swr";
+import { fetcher } from "@/lib/fetcher";
+import Loading from "@/app/(auth)/loading";
+import { Loader } from "../helpers";
+import Image from "next/image";
+import Link from "next/link";
+
+interface Props{
+    id: string;
+    setShowModal: (val: boolean) => void
+}
+
+export const RateModal = ({id, setShowModal}: Props) => {
+
+    const {data, mutate, isLoading, error} = useSWR(`/api/getRatesById/${id}`, fetcher);
+    
+    // const { plan_id, zip_code, company_unique_id, company_id, company_tdu_id, company_tdu_name, company_name, company_logo, website, plan_name, plan_details, plan_type, special_terms, rate_type, term_value, price_kwh500, price_kwh1000, price_kwh2000, pricing_details, fact_sheet, terms_of_service, go_to_plan, yrac_url, enroll_phone, renewable_energy_id, renewable_energy_description, rating_total , rating_count, jdp_rating, jdp_rating_year, sort_key} = ;
+    console.log(data);
+  return (
+    <div className="bg-black modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40">
+
+        <div className="relative bg-gray-100 shadow-md rounded-md max-w-[750px] w-full mx-auto">
+
+            <div className="w-full rounded-md py-2 px-4 flex items-center gap-2 justify-between bg-primary">
+                <p className="text-white text-lg font-bold capitalize">Plan details</p>
+                <i className="fas fa-times text-white text-2xl cursor-pointer" 
+                onClick={() => setShowModal(false)}
+                ></i>                
+            </div>
+        {isLoading ? (
+        <div className="flex items-center justify-center my-10">
+            <Loader dark/> 
+        </div>
+        ) : ( 
+        <>
+        <div className="py-5 px-4 flex justify-between gap-3 items-center ">
+        
+            <div className="flex items-center">
+                <div className="relative">
+                    <Image src={data?.company_logo} alt={data?.company_name} width={200} height={150}/>
+                </div>
+
+                <div>
+                    <p className="text-lg font-bold">{data?.company_name}</p>
+                    <p className="text-sm text-gray-700 font-semibold">{data?.plan_name}</p>
+                </div>
+            </div>
+
+            <div className="flex flex-col items-center gap-2">
+                <button className="bg-primary rounded-full text-lg text-white py-2.5 px-4 flex items-center shadow-sm hover:shadow-md hover:gap-3 gap-2 justify-center">
+                    Select Plan
+                    <i className="fas fa-arrow-right-long"></i>
+                </button>
+
+                <Link href={data?.website} target="_blank" className="flex gap-2 items-center text-primary text-lg">
+                    <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                    Website
+                </Link>
+            </div>
+
+        </div>
+
+        <div className="bg-gray-400 w-full h-[2px] mb-3"/>
+
+        <div className="py-1 px-4 flex items-center gap-4">
+            <Link href={data?.fact_sheet} target="_blank" className="flex gap-2 items-center text-primary">
+                <i className="far fa-folder text-xl"></i>
+                <p className="font-semibold">Electricity Facts Table</p>
+            </Link>
+
+            <Link href={data?.terms_of_service} target="_blank" className="flex gap-2 items-center text-primary">
+                <i className="far fa-folder text-xl"></i>
+                <p className="font-semibold">Terms & Services</p>
+            </Link>
+
+            <Link href={data?.yrac_url} target="_blank" className="flex gap-2 items-center text-primary">
+                <i className="far fa-folder text-xl"></i>
+                <p className="font-semibold">YRAC</p>
+            </Link>
+        </div>
+        
+        <div className="py-2 px-4 flex items-center gap-3">
+            <div className="flex flex-col justify-center gap-1">   
+                <div className="flex items-center gap-1">
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
+                </div>
+                <div className="flex items-center gap-1">
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
+                </div>
+                <div className="flex items-center gap-1">
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
+                </div>
+            </div>
+
+            <div>
+
+            </div>
+        </div>
+        </>
+        )}  
+
+        </div>
+
+    </div>
+  )
+}

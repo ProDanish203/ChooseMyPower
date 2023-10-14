@@ -84,6 +84,10 @@ img{
   opacity: 0;
 }
 
+.modal-bg{
+  background: rgba(0, 0, 0, 0.3);
+}
+
 /* Footer Section Starts */
 .grid-5{
   display: grid;
@@ -119,6 +123,20 @@ img{
   border-radius: 50%;
   background: #fff;
   margin: -4px 0 0 -4px;
+}
+.lds-roller.dark div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #111;
+  margin: -4px 0 0 -4px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 .lds-roller div:nth-child(1) {
   animation-delay: -0.036s;

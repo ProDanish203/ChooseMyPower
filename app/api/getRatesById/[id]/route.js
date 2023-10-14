@@ -3,10 +3,10 @@ import { connectDb } from "@../../../lib/config/db";
 
 export const GET = async ({params}, req, res) => {
     try{
-        await connectDb()
-        const {zip} = await req.params;
+        await connectDb();
+        const {id} = await req.params;
 
-        const data = await Rates.find({zip_code: zip});
+        const data = await Rates.findById(id);
 
         return new Response(JSON.stringify(data), {status: 200});
     }catch(error){

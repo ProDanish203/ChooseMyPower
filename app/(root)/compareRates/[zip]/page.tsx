@@ -27,7 +27,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
 
     <div className="flex max-md:flex-col gap-5 w-full">
         {/* Filter section */}
-        <div className="bg-gray-200 py-4 px-3 rounded-md shadow-sm min-w-[300px] max-h-[50vh] max-sm:overflow-y-scroll">
+        <div className="bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-scroll">
             <h4 className="md:text-xl text-lg mb-4 text-text font-semibold">Plan Filters</h4>
             <div>
 
