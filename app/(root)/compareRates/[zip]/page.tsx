@@ -13,18 +13,21 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const searchParams = useSearchParams();
     const type = searchParams.get('type')
 
-    const {data, mutate, isLoading, error} = useSWR(`/api/rawData?zip=${zip}`, fetcher);
+    // const {data, success}
+    const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
 
   return (
-    <section className="sm:px-10 px-3 pb-10 bg-primary hero-section pt-32 min-h-[100vh]">
+    <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
+        <section className="max-w-[1400px] w-full mx-auto">
+
         
     {isLoading ? Loading() : (
     <>
-    <h2 className="text-bg md:text-2xl text-lg mb-5 md:text-center ">Showing results for <span className="font-bold">{zip}</span> in <span className="font-bold">{type}</span> setion</h2>
+    <h2 className="text-primary md:text-2xl text-lg mb-5 md:text-center ">Showing results for <span className="font-bold">{zip}</span> in <span className="font-bold">{type}</span> section</h2>
 
     <div className="flex max-md:flex-col gap-5 w-full">
         {/* Filter section */}
-        <div className="bg-secondary py-4 px-3 rounded-md shadow-sm min-w-[300px] max-h-[80vh] overflow-y-scroll">
+        <div className="bg-gray-200 py-4 px-3 rounded-md shadow-sm min-w-[300px] max-h-[50vh] max-sm:overflow-y-scroll">
             <h4 className="md:text-xl text-lg mb-4 text-text font-semibold">Plan Filters</h4>
             <div>
 
@@ -60,15 +63,15 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
             
         </div>
         {/* Results section */}
-        <div>
+        <div className="w-full">
         {data ? (
         <>  
         {data.length > 0 ? (
-            <h6 className="text-bg mb-5 text-lg font-semibold">
+            <h6 className="text-primary mb-5 text-lg">
             Total {data?.length} Plans retrieved
         </h6>
         ) : (
-        <h6 className="text-bg md:text-2xl text-xl mb-5 font-semibold">
+        <h6 className="text-primary md:text-2xl text-xl mb-5">
             No Plans retrieved
         </h6>
         )}
@@ -94,6 +97,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     </>
     )}
     </section>
+    </main>
   )
 }
 

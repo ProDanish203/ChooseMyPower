@@ -15,10 +15,10 @@ interface Props{
 export const getServicesData = async () => {
     try{
         await connectDb();
-        const service = await ServiceModel.find();
+        const data = await ServiceModel.find();
 
-        if(service){
-            return {data: service, success: true, message: "SEO data fetched successfully"}
+        if(data){
+            return {data , success: true, message: "SEO data fetched successfully"}
         }else{
             return {success: false, message: "Error occured while while SEO data"}
         }
@@ -31,10 +31,10 @@ export const getServicesData = async () => {
 export const getService = async (id:string) => {
     try{
         await connectDb();
-        const service = await ServiceModel.findById(id);
+        const data = await ServiceModel.findById(id);
 
-        if(service){
-            return {data: service, success: true, message: "SEO data fetched successfully"}
+        if(data){
+            return {data , success: true, message: "SEO data fetched successfully"}
         }else{
             return {success: false, message: "Error occured while while SEO data"}
         }
@@ -47,11 +47,11 @@ export const getService = async (id:string) => {
 export const createService = async ({title, para1, para2, image}: Props) => {
     try{
         await connectDb();
-        const service = await ServiceModel.create({
+        const data = await ServiceModel.create({
             title, para1, para2, image
         })
 
-        if(service){
+        if(data){
             revalidatePath("/");
             return {success: true, message: "SEO data added successfully"}
         }else{

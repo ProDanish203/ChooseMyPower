@@ -20,10 +20,10 @@ export const getHomeData = async (dataFor: string) => {
     try{
         await connectDb();
 
-        const home = await HomeModel.findOne({dataFor});
+        const data = await HomeModel.findOne({dataFor});
 
-        if(home){
-            return {data: home, success: true, message: "SEO data fetched successfully"}
+        if(data){
+            return {data , success: true, message: "SEO data fetched successfully"}
         }else{
             return {success: false, message: "Error occured while while SEO data"}
         }
@@ -37,11 +37,11 @@ export const createHome = async ({heading, tagLine, aboutHeading, aboutPara1, ab
     try{
         await connectDb();
 
-        const home = await HomeModel.create({
+        const data = await HomeModel.create({
             heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara,
         })
 
-        if(home){
+        if(data){
             revalidatePath('/');
             return {success: true, message: "SEO data added successfully"}
         }else{
