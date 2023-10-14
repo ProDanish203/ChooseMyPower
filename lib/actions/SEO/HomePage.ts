@@ -16,7 +16,7 @@ interface Props{
     footerPara: string,
 }
 
-export const getHomeSeo = async (dataFor: string) => {
+export const getHomeData = async (dataFor: string) => {
     try{
         await connectDb();
 

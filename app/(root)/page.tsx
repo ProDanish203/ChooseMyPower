@@ -1,13 +1,13 @@
 import { ContactForm } from "@/components/forms";
 import { Heading } from "@/components/helpers";
 import { About, Counter, Hero, Providers, Services, Team } from "@/components/shared";
-import { getHomeSeo } from "@/lib/actions/SEO/HomePage";
+import { getHomeData } from "@/lib/actions/SEO/HomePage";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
 export default async function Home() {
 
-  const {data, success} = await getHomeSeo("home")
+  const {data, success} = await getHomeData("home")
   const {heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara} = data;
 
   if(!success) return toast.error("Something went wrong!");

@@ -1,4 +1,4 @@
-import { getHomeSeo } from '@/lib/actions/SEO/HomePage'
+import { getHomeData } from '@/lib/actions/SEO/HomePage'
 import { getServicesData } from '@/lib/actions/SEO/ServicesPage'
 import { navLinks } from '@/utils/data'
 import Image from 'next/image'
@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const Footer = async () => {
 
-  const {data} = await getHomeSeo("home");
+  const {data} = await getHomeData("home");
   const service = await getServicesData();
   const {footerPara} = data;
   return (

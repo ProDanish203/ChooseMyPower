@@ -1,10 +1,10 @@
 import { ServiceCard } from "@/components/cards";
 import { AddService } from "@/components/forms/SEO Forms/AddService";
-import { getServicesSeo } from "@/lib/actions/SEO/ServicesPage";
+import { getServicesData } from "@/lib/actions/SEO/ServicesPage";
 
 const ServicesSeo = async () => {
 
-  const {data, success} = await getServicesSeo();
+  const {data, success} = await getServicesData();
 
   return (
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
