@@ -10,7 +10,7 @@ const ServiceSeo = async ({params}: {params: {id: string}}) => {
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
       <section className="max-w-[1400px] w-full mx-auto">
 
-        <h3 className="text-center text-white text-5xl max-sm:text-3xl font-extrabold">Services Page SEO</h3>
+        <h3 className="text-center text-white text-5xl max-sm:text-3xl font-extrabold">Services Page</h3>
 
         <div className="mt-10">
             <ServicesForm id={_id} title={title} para1={para1} para2={para2} image={image}/>

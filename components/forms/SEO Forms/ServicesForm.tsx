@@ -10,10 +10,11 @@ interface Props{
     para1?: string;
     para2?: string;
     image?: string;
+    add?: boolean
 }
 
 
-export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
+export const ServicesForm = ({id , image, para1, para2, title, add}: Props) => {
 
     const [formData, setFormData] = useState({
         title: title || '',
@@ -34,15 +35,13 @@ export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
     e.preventDefault();
     try{
         const {success, message } = await updateService({
-            id,
-            dataFor: 'service',
             title: formData.title,
             para1: formData.para1,
             para2: formData.para2,
             image: formData.image,
         });
 
-        if(success) return toast.success("Data updated succesfully");
+        if(success) return toast.success("Service Updated succesfully");
 
     }catch(error){
         toast.error("Something went wrong");
@@ -50,9 +49,29 @@ export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
     }
     }
 
+    const handleAdd = async (e: FormEvent) => {
+      e.preventDefault();
+      try{
+          const {success, message } = await createService({
+              id,
+              dataFor: 'service',
+              title: formData.title,
+              para1: formData.para1,
+              para2: formData.para2,
+              image: formData.image,
+          });
+  
+          if(success) return toast.success("Service Added succesfully");
+  
+      }catch(error){
+          toast.error("Something went wrong");
+          console.log(error);
+      }
+      }
+
   return (
     <form
-    onSubmit={handleSubmit}
+    onSubmit={add ? handleAdd : handleSubmit}
     className='py-3 px-4 rounded-md bg-blackAccent flex flex-col gap-4 justify-center max-w-[1400px] w-full mx-auto'
     >
 
@@ -94,7 +113,7 @@ export const ServicesForm = ({id , image, para1, para2, title}: Props) => {
     <div className='my-5'>
       <button type="submit" 
       className='bg-accent py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
-        Update SEO
+        {add ? "Add Service": "Update"}
       </button>
     </div>
 

@@ -23,7 +23,6 @@ export default async function RootLayout({
 }) {
 
   const session = await getServerSession(GET) 
-  console.log(session)
   // @ts-ignore
   if(!session) redirect("/login")
 

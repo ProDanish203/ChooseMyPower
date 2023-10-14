@@ -38,9 +38,9 @@ export const ServiceCard = ({data, delay, edit, path}: Props) => {
             {data.para1.substring(0, 200)}...
             </p>
 
-            <Link href={`${edit ? `/admin/servicesSeo/${data._id}`: `/services/${data._id}`}`}>
-              <button className="mt-2 bg-accent text-white px-3 py-2 rounded-sm hover:bg-primary">
-                {edit ? "Update": "Read More"}
+            <Link href={`${edit ? `/admin/services/${data._id}`: `/services/${data._id}`}`}>
+              <button className="mt-2 min-w-[150px] bg-accent text-white px-3 py-2 rounded-sm hover:bg-primary">
+                {edit ? "Edit": "Read More"}
               </button>
             </Link>
         </div>

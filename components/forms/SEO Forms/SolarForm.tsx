@@ -5,14 +5,14 @@ import { toast } from "react-toastify";
 import { updateSolar } from "@/lib/actions/SEO/SolarPage";
 
 interface Props{
-  id: string;
-  heading: string;
-  para1: string;
-  para2: string;
-  subHeading1: string;
-  subHeading2: string;
-  subPara1: string;
-  subPara2: string;
+  id?: string;
+  heading?: string;
+  para1?: string;
+  para2?: string;
+  subHeading1?: string;
+  subHeading2?: string;
+  subPara1?: string;
+  subPara2?: string;
 }
 
 export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, subPara1, subPara2}: Props) => {
@@ -137,7 +137,7 @@ export const SolarForm = ({id, heading, para1, para2, subHeading1, subHeading2, 
     <div className='my-5'>
       <button type="submit" 
       className='bg-accent py-2.5 px-3 text-white text-lg rounded-md outline-none max-w-[350px] w-full mx-auto'>
-        Update SEO
+        Update
       </button>
     </div>
 

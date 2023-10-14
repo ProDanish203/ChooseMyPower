@@ -23,18 +23,6 @@ export const navLinks = [
 
 export const adminLinks = [
     {
-        name: 'Home Page SEO',
-        path: '/admin/homeSeo'
-    },
-    {
-        name: 'Solar Page SEO',
-        path: '/admin/solarSeo'
-    },
-    {
-        name: 'Services Page SEO',
-        path: '/admin/servicesSeo'
-    },
-    {
         name: 'Insert Data',
         path: '/admin/insertData'
     },
