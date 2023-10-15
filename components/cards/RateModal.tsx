@@ -16,9 +16,9 @@ export const RateModal = ({id, setShowModal}: Props) => {
     const {data, mutate, isLoading, error} = useSWR(`/api/getRatesById/${id}`, fetcher);
 
   return (
-    <div className="bg-black modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40 p-3">
+    <div className="modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40 p-3">
 
-        <div className="relative bg-gray-100 shadow-md rounded-md max-w-[850px] max-h-[80vh] overflow-hidden overflow-y-auto w-full mx-auto"
+        <div className="relative bg-gray-100 shadow-md rounded-md max-w-[1000px] max-h-[80vh] overflow-hidden overflow-y-auto w-full mx-auto"
         data-aos="flip-left" data-aos-duration="1200"
         >
 
