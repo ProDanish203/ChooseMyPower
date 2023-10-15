@@ -5,6 +5,7 @@ import { fetcher } from "@/lib/fetcher";
 import { providersName, usage } from "@/utils/data";
 import Loading from "./loading";
 import { RateCard } from "@/components/cards";
+import { useState } from "react";
 
 
 const CompareRates = ({params}: {params: {zip:string}}) => {
@@ -13,21 +14,32 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const searchParams = useSearchParams();
     const type = searchParams.get('type')
 
+    const [showFilter, setShowFilter] = useState(false)
+
     // const {data, success}
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
 
   return (
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
-        <section className="max-w-[1400px] w-full mx-auto">
+    <section className="max-w-[1400px] w-full mx-auto">
 
         
     {isLoading ? Loading() : (
     <>
     <h2 className="text-primary md:text-2xl text-lg mb-5 md:text-center ">Showing results for <span className="font-bold">{zip}</span> in <span className="font-bold">{type}</span> section</h2>
 
-    <div className="flex max-md:flex-col gap-5 w-full">
+    <div className="flex max-xl:flex-col gap-5 w-full">
         {/* Filter section */}
-        <div className="bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-scroll">
+
+        <button type="button" 
+        onClick={() => setShowFilter(prev => !prev)}
+        className={`xl:hidden flex items-center gap-3 bg-gray-200 py-2 px-4 w-fit rounded-md`}>
+            <i className="fas fa-filter text-2xl "></i>
+            <p className="text-xl font-bold text-primary">{showFilter ? "Hide": "Show"} Filters</p>
+        </button>
+        
+        <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-scroll`}
+        >
             <h4 className="md:text-xl text-lg mb-4 text-text font-semibold">Plan Filters</h4>
             <div>
 

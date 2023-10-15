@@ -14,12 +14,13 @@ interface Props{
 export const RateModal = ({id, setShowModal}: Props) => {
 
     const {data, mutate, isLoading, error} = useSWR(`/api/getRatesById/${id}`, fetcher);
-    
-    // const { plan_id, zip_code, company_unique_id, company_id, company_tdu_id, company_tdu_name, company_name, company_logo, website, plan_name, plan_details, plan_type, special_terms, rate_type, term_value, price_kwh500, price_kwh1000, price_kwh2000, pricing_details, fact_sheet, terms_of_service, go_to_plan, yrac_url, enroll_phone, renewable_energy_id, renewable_energy_description, rating_total , rating_count, jdp_rating, jdp_rating_year, sort_key} = ;
+
   return (
     <div className="bg-black modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40 p-3">
 
-        <div className="relative bg-gray-100 shadow-md rounded-md max-w-[850px] max-h-[80vh] overflow-hidden overflow-y-auto w-full mx-auto">
+        <div className="relative bg-gray-100 shadow-md rounded-md max-w-[850px] max-h-[80vh] overflow-hidden overflow-y-auto w-full mx-auto"
+        data-aos="flip-left" data-aos-duration="1200"
+        >
 
             <div className="w-full sticky top-0 z-20 rounded-md py-2 px-4 flex items-center gap-2 justify-between bg-primary">
                 <p className="text-white text-lg font-bold capitalize">Plan details</p>
@@ -84,31 +85,31 @@ export const RateModal = ({id, setShowModal}: Props) => {
             </Link>
         </div>
         
-        <div className="py-2 px-4 flex max-sm:flex-col max-sm:items-start items-center gap-10 pb-10">
+        <div className="py-2 px-4 flex max-sm:flex-col-reverse max-sm:items-start items-center gap-10 pb-10">
             <div className="flex flex-col justify-center gap-1">   
                 <div className="flex items-center gap-1">
-                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
+                    <p className="py-1.5 px-11 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
                     <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
                 </div>
                 <div className="flex items-center gap-1">
-                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
-                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 1000kwh</p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh1000}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
                 </div>
                 <div className="flex items-center gap-1">
-                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 500kwh</p>
-                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh500}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg font-semibold">Rate 2000kwh</p>
+                    <p className="py-1.5 px-10 text-center bg-gray-300 text-primary text-lg"><span className="font-semibold">{data?.price_kwh2000}</span> <i className="fas fa-cent-sign "></i> <span className="text-sm text-gray-600">/kwh</span></p>
                 </div>
             </div>
 
             <div className="flex flex-col gap-2">
                 <div className="flex items-center max-sm:flex-col max-xs:items-start max-sm:gap-2 gap-10">
                     <div>
-                        <h4 className="text-4xl font-extrabold text-primary ">{data?.price_kwh500}<i className="fas fa-cent-sign"></i></h4>
+                        <h4 className="md:text-5xl text-4xl font-extrabold text-primary ">{data?.price_kwh500}<i className="fas fa-cent-sign"></i></h4>
                         <p className="text-gray-600 font-semibold">Per KWH</p>
                     </div>
 
                     <div>
-                        <h4 className="text-4xl font-extrabold text-primary ">{data?.term_value} month</h4>
+                        <h4 className="md:text-5xl text-4xl font-extrabold text-primary ">{data?.term_value} month</h4>
                         <p className="text-gray-600 font-semibold">{data?.rate_type}</p>
                     </div>
                 </div>
