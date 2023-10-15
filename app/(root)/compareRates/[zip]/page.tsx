@@ -38,7 +38,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
             <p className="text-xl font-bold text-primary">{showFilter ? "Hide": "Show"} Filters</p>
         </button>
         
-        <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-scroll`}
+        <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-auto`}
         >
             <h4 className="md:text-xl text-lg mb-4 text-text font-semibold">Plan Filters</h4>
             <div>

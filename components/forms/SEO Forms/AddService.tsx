@@ -13,8 +13,8 @@ export const AddService = () => {
         className='bg-blackAccent py-3 hover:scale-105 rounded-md cursor-pointer text-white flex items-center justify-center gap-2 max-w-[200px] w-full mx-auto my-5'
         onClick={() => setShowForm(prev => !prev)}
         >
-            <i className='fas fa-plus text-2xl'></i>
-            <p>Add Service</p>
+            <i className={`fas fa-plus text-2xl ${showForm && 'rotate-45'}`}></i>
+            <p>{showForm ? "Close Form": "Add Service"} </p>
         </div>
         {
         showForm && (
