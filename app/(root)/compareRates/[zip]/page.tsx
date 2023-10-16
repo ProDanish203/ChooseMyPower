@@ -16,9 +16,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
 
     const [showFilter, setShowFilter] = useState(false)
 
-    // const {data, success}
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
-    console.log(data);
 
   return (
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">

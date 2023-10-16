@@ -5,9 +5,8 @@ export const GET = async ({params}, req, res) => {
     try{
         await connectDb()
         const {zip} = await req.params;
-
         const data = await Rates.find({zip_code: zip});
-
+        
         return new Response(JSON.stringify(data), {status: 200});
     }catch(error){
         console.log(error)
