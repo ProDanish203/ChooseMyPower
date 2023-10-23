@@ -77,6 +77,10 @@ export const providerData = [
         name: 'Frontier-Energy-LTD',
         image: '/images/providers/p11.png',
     },
+    {
+        name: 'Value Power',
+        image: '/images/providers/p12.png',
+    },
 ]
 
 export const counterStats = [
@@ -95,23 +99,5 @@ export const counterStats = [
     {
         title: "Happy customers",
         value: 3500
-    },
-]
-
-export const teamData = [
-    {
-        image: '/images/team/banner.jpg',
-        name: 'Kevin Jones',
-        post: 'Energy Broker'
-    },
-    {
-        image: '/images/team/banner.jpg',
-        name: 'Kevin Jones',
-        post: 'Energy Broker'
-    },
-    {
-        image: '/images/team/banner.jpg',
-        name: 'Kevin Jones',
-        post: 'Energy Broker'
     },
 ]

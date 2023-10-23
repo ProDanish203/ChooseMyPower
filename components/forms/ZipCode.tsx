@@ -29,7 +29,7 @@ export const ZipCode = () => {
   data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200"
   >
 
-    <div className='flex items-center max-md:flex-col max-md:justify-center gap-2 bg-secondary md:py-1 py-4 px-4 md:pr-1 relative rounded-md'>
+    <div className='flex items-center max-md:flex-col max-md:justify-center gap-2 bg-white md:py-1 py-4 px-4 md:pr-1 relative rounded-md'>
 
     <input type="text" 
     className='bg-transparent max-md:w-full px-2 py-2.5 outline-none text-lg'

@@ -7,10 +7,10 @@ export const GET = async (req, res) => {
 
         const data = await response.json();
 
-        const filteredData = data.data.filter((plan) => plan.jdp_rating > 2)
-        filteredData.filter((plan) => plan.jdp_rating > 5)
+        // const filteredData = data.data.filter((plan) => plan.jdp_rating > 2)
+        // filteredData.filter((plan) => plan.jdp_rating > 5)
 
-        return new Response(JSON.stringify(filteredData), {status: 200});
+        return new Response(JSON.stringify(data), {status: 200});
     }catch(error){
         console.log(error)
         return new Response(`Failed to fetch the resource: ${error.message}`, {status: 500})

@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/forms";
 import { Heading } from "@/components/helpers";
-import { About, Counter, Hero, Providers, Services, Team } from "@/components/shared";
+import { About, Counter, Hero, Providers, Services } from "@/components/shared";
 import { getHomeData } from "@/lib/actions/SEO/HomePage";
 import Image from "next/image";
 import { toast } from "react-toastify";
@@ -19,8 +19,6 @@ export default async function Home() {
       <Providers/>
 
       <About heading={aboutHeading} para1={aboutPara1} para2={aboutPara2}/>
-
-      <Team tagLine={expertsTagline}/>
 
       <Services tagLine={servicesTagline}/>
 
