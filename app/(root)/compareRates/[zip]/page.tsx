@@ -17,6 +17,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const [showFilter, setShowFilter] = useState(false)
 
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
+    console.log(error)
 
   return (
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
@@ -88,8 +89,8 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
         )}
         
 
-        {data?.slice(0,10).map((plan:any) => (
-        <div key={plan.company_unique_id}
+        {data?.map((plan:any) => (
+        <div key={plan.plan_id}
         className="flex flex-col gap-4 justify-center items-start w-full "
         >
         <RateCard data={plan}/>

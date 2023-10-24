@@ -4,8 +4,8 @@ import { useState } from "react";
 import { RateModal } from "./RateModal";
 
 export const RateCard = ({data} :any) => {
-    // console.log(data);
-    const {_id, company_logo, company_name, jdp_rating, plan_name, term_value, price_kwh500, price_kwh1000, price_kwh2000,} = data;
+
+    const {_id, company_logo, company_name, term_value, price_kwh500} = data;
 
     const [showModal, setShowModal] = useState(false);
 
@@ -20,7 +20,7 @@ export const RateCard = ({data} :any) => {
 
         {
             showModal && (
-                <RateModal id={_id} setShowModal={setShowModal}/>
+                <RateModal data={data} id={_id} setShowModal={setShowModal}/>
             )
         }   
         <div className="w-full flex items-center justify-between max-md:flex-col max-md:justify-center pr-5 gap-2">
