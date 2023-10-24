@@ -34,10 +34,6 @@ export const usage = ['500kwh', '1000kwh', '2000kwh']
 
 export const providerData = [
     {
-        name: 'Constellation',
-        image: '/images/providers/p1.png',
-    },
-    {
         name: 'Discount-Power',
         image: '/images/providers/p2.png',
     },
@@ -60,10 +56,6 @@ export const providerData = [
     {
         name: 'True-Power',
         image: '/images/providers/p7.png',
-    },
-    {
-        name: 'Gexa-Energy',
-        image: '/images/providers/p8.png',
     },
     {
         name: 'Chariot-Energy',
