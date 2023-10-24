@@ -14,27 +14,19 @@ interface Props{
 
 export const RateModal = ({data, id, setShowModal}: Props) => {
 
-    // const {data, mutate, isLoading, error} = useSWR(`/api/getRatesById/${id}`, fetcher);
-
   return (
     <div className="modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40 p-3">
 
         <div className="relative bg-gray-100 shadow-md rounded-md max-w-[1000px] max-h-[80vh] overflow-hidden overflow-y-auto w-full mx-auto"
         data-aos="flip-left" data-aos-duration="1200"
         >
-
             <div className="w-full sticky top-0 z-20 rounded-md py-2 px-4 flex items-center gap-2 justify-between bg-primary">
                 <p className="text-white text-lg font-bold capitalize">Plan details</p>
                 <i className="fas fa-times text-white text-2xl cursor-pointer" 
                 onClick={() => setShowModal(false)}
                 ></i>                
             </div>
-        {/* {isLoading ? (
-        <div className="flex items-center justify-center my-10">
-            <Loader dark/> 
-        </div>
-        ) : ( 
-        <> */}
+    
         <div className="py-5 px-4 flex max-sm:flex-col xs:gap-10 justify-between gap-3 items-center ">
         
             <div className="flex max-sm:flex-col max-sm:gap-5 items-center">
@@ -123,8 +115,6 @@ export const RateModal = ({data, id, setShowModal}: Props) => {
                 </div>
             </div>
         </div>
-        {/* </>
-        )}   */}
 
         </div>
 

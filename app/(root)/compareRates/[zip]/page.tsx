@@ -17,12 +17,11 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const [showFilter, setShowFilter] = useState(false)
 
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
-    console.log(error)
+    // console.log(error)
 
   return (
     <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
     <section className="max-w-[1400px] w-full mx-auto">
-
         
     {isLoading ? Loading() : (
     <>
@@ -88,22 +87,19 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
         </h6>
         )}
         
-
         {data?.map((plan:any) => (
         <div key={plan.plan_id}
         className="flex flex-col gap-4 justify-center items-start w-full "
         >
-        <RateCard data={plan}/>
+            <RateCard data={plan}/>
         </div>
         ))}
-
         </>
         ): (
         <h3 className="text-xl font-bold text-bg">No results: </h3>
         )}
         
         </div>
-        
 
     </div>
     </>

@@ -6,7 +6,6 @@ import { RateModal } from "./RateModal";
 export const RateCard = ({data} :any) => {
 
     const {_id, company_logo, company_name, term_value, price_kwh500} = data;
-
     const [showModal, setShowModal] = useState(false);
 
   return (
