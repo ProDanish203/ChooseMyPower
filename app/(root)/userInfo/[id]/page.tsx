@@ -1,15 +1,15 @@
 import { PlanCard } from "@/components/cards";
-import { Address, DatePicker } from "@/components/forms";
+import { UserInfo } from "@/components/forms";
 import { ChooseNavbar } from "@/components/shared";
 import Link from "next/link";
 
 const Plan = ({params}: {params: {id: string}}) => {
 
     const {id} = params;  
-
+    
   return (
     <>
-  <ChooseNavbar step={2}/>
+  <ChooseNavbar step={3}/>
 
   <main className="xl:px-[4%] px-[2%] py-5 pt-10">
     <section className="max-w-[1700px] w-full mx-auto">
@@ -18,19 +18,14 @@ const Plan = ({params}: {params: {id: string}}) => {
           <PlanCard id={id}/>
       
           <div className="flex-1 h-full">
-            <h2 className="text-5xl font-bold my-2 max-sm:text-2xl">Good Choice!</h2>
-            <h3 className="md:text-2xl">Great!, now please provide your address where to send electricity and when it should start.</h3>
+            <h2 className="text-5xl font-bold my-2 max-sm:text-2xl">Enter Your Information</h2>
+            <h3 className="sm:text-xl">Great!, now please provide your personal information</h3>
 
             <div className="my-10">
-              <Address/>
+                <UserInfo/>
             </div>
 
-            <div>
-              <h3 className="md:text-2xl mb-5">Please select when would you like to start your service.</h3>
-              <DatePicker/>
-            </div>
-
-            <Link href={`/userInfo/${id}`} className="my-5 block max-w-[200px] w-full">
+            <Link href={`/payment/${id}`} className="my-5 block max-w-[200px] w-full">
               <button className="bg-primary w-full text-white px-2 text-center py-2 text-lg rounded-md">Continue</button>
             </Link>
           </div>
