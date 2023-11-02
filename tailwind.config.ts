@@ -22,7 +22,8 @@ const config: Config = {
         "footer": "linear-gradient(to right bottom, rgba(0,0,0,0.7), rgba(0,0,0, 0.8)), url('/images/footer.jpg')",
       },
       screens: {
-        xs: "450px"
+        xs: "450px",
+        xsm: "380px"
       }
     },
   },

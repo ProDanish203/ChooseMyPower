@@ -2,10 +2,11 @@
 import Image from "next/image";
 import { useState } from "react";
 import { RateModal } from "./RateModal";
+import Link from "next/link";
 
 export const RateCard = ({data} :any) => {
 
-    const {_id, company_logo, company_name, term_value, price_kwh500} = data;
+    const {plan_id, company_logo, company_name, term_value, price_kwh500} = data;
     const [showModal, setShowModal] = useState(false);
 
   return (
@@ -19,7 +20,7 @@ export const RateCard = ({data} :any) => {
 
         {
             showModal && (
-                <RateModal data={data} id={_id} setShowModal={setShowModal}/>
+                <RateModal data={data} id={plan_id} setShowModal={setShowModal}/>
             )
         }   
         <div className="w-full flex items-center justify-between max-md:flex-col max-md:justify-center pr-5 gap-2">
@@ -32,23 +33,25 @@ export const RateCard = ({data} :any) => {
                 </div>
                 <div className="bg-neutral-400 h-[100px] w-[2px] max-md:hidden"/>
 
-                <div className="max-md:flex flex items-center gap-10 max-md:absolute top-20 left-5">
+                <div className="max-md:flex flex items-center justify-center gap-10 max-md:absolute top-20 left-5">
                     <div>
-                        <h5 className="text-3xl font-bold max-md:text-2xl">{term_value} month</h5>
+                        <h5 className="text-3xl font-bold max-md:text-2xl max-sm:text-xl">{term_value} month</h5>
                     </div>
 
                     <div className="bg-neutral-400 h-[100px] w-[2px] max-md:hidden"/>
                     <div>
-                        <h5 className="text-3xl font-bold max-md:text-2xl">{price_kwh500} <i className="fas fa-cent-sign"></i> <span className="text-lg max-md:text-sm text-neutral-600">/kwh</span></h5>
+                        <h5 className="text-3xl font-bold max-md:text-2xl max-sm:text-xl">{price_kwh500} <i className="fas fa-cent-sign"></i> <span className="text-lg max-md:text-sm text-neutral-600">/kwh</span></h5>
                     </div>
                 </div>
             </div>
 
             <div className="max-md:w-full max-md:mt-14 flex flex-col gap-2">
+                <Link href={`/plan/${plan_id}`}>
                 <button type="button" className="max-md:w-full bg-primary text-white md:text-lg flex rounded-full shadow-sm py-2 px-5 items-center gap-2 hover:gap-3 ">
                     Select Plan 
                     <i className="fas fa-arrow-right-long"></i>
                 </button>
+                </Link>
 
                 <button type="button" className="max-md:w-full bg-primary text-white md:text-lg flex rounded-full shadow-sm  py-2 px-5 items-center gap-2 hover:gap-3"
                 onClick={() => setShowModal(true)}

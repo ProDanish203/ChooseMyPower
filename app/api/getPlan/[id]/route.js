@@ -1,16 +1,15 @@
 export const GET = async ({params}, req, res) => {
     try{
-        const {zip} = await req.params;
-        const response = await fetch(`http://api.powertochoose.org/api/PowerToChoose/plans?zip_code=${zip}`);
+        const {id} = await req.params;
+        const response = await fetch(`http://api.powertochoose.org/api/PowerToChoose/plans?zip_code=75469`);
         const {data} = await response.json();
         
-        const selectedData = [];
+        let selectedData;
         if(data){   
-            const companiesToPopulate = ['RESQL01DB1245945000001-VALU', 'RESQL01DB1245476300001-DISC', 'ELSQL01DB1245250200001-TARA', 'RESQL01DB1245476300001-CIRR', 'ELSQL01DB1245304000001-AMIG', 'ELSQL01DB1245229100018-GREE', 'RESQL01DB1245929800001-TRUE', 'RESQL01DB1245854700001-CHAR', 'RESQL01DB1245472100001-FRON']
 
             data.forEach((item) => {
-                if(companiesToPopulate.includes(item.company_unique_id)){
-                    const selectedItem = {
+                if(id.includes(item.plan_id)){
+                    selectedData = {
                         plan_id: item.plan_id,
                         zip_code: item.zip_code,
                         company_unique_id: item.company_unique_id,
@@ -39,8 +38,6 @@ export const GET = async ({params}, req, res) => {
                         renewable_energy_description: item.renewable_energy_description,
                         sort_key: item.sort_key,
                     }
-
-                    selectedData.push(selectedItem);
                 }
             });
         }

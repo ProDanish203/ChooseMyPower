@@ -41,10 +41,12 @@ export const RateModal = ({data, id, setShowModal}: Props) => {
             </div>
 
             <div className="flex flex-col gap-2 max-sm:w-full">
+                <Link href={`/plan/${data?.plan_id}`}>
                 <button className="bg-primary rounded-full max-sm:w-full max-sm:block text-lg text-white py-2.5 px-10 flex items-center shadow-sm hover:shadow-md hover:gap-3 gap-2 justify-center">
                     Select Plan
                     <i className="fas fa-arrow-right-long max-sm:ml-3"></i>
                 </button>
+                </Link>
 
                 <Link href={data?.website} target="_blank" className="flex gap-2 items-center text-primary text-lg">
                     <i className="fa-solid fa-arrow-up-right-from-square"></i>

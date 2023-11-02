@@ -17,10 +17,10 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const [showFilter, setShowFilter] = useState(false)
 
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
-    // console.log(error)
+    // console.log(data)
 
   return (
-    <main className="px-[9%] max-lg:px-[4%] py-5 pt-10">
+    <main className="px-[9%] max-lg:px-[2%] py-5 pt-10">
     <section className="max-w-[1400px] w-full mx-auto">
         
     {isLoading ? Loading() : (
@@ -33,8 +33,8 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
         <button type="button" 
         onClick={() => setShowFilter(prev => !prev)}
         className={`xl:hidden flex items-center gap-3 bg-gray-200 py-2 px-4 w-fit rounded-md`}>
-            <i className="fas fa-filter text-2xl "></i>
-            <p className="text-xl font-bold text-primary">{showFilter ? "Hide": "Show"} Filters</p>
+            <i className="fas fa-filter text-lg "></i>
+            <p className="text-md text-primary">{showFilter ? "Hide": "Show"} Filters</p>
         </button>
         
         <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-auto`}
