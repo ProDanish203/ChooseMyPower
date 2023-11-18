@@ -2,11 +2,10 @@
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
-import { providersName, usage } from "@/utils/data";
+import { providerData } from "@/utils/data";
 import Loading from "./loading";
 import { RateCard } from "@/components/cards";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 const CompareRates = ({params}: {params: {zip:string}}) => {
 
@@ -17,7 +16,31 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
     const [showFilter, setShowFilter] = useState(false)
 
     const {data, mutate, isLoading, error} = useSWR(`/api/getRates/${zip}`, fetcher);
-    // console.log(data)
+
+    const initialActiveCompanies = ['RESQL01DB1245945000001-VALU', 'RESQL01DB1245476300001-DISC', 'ELSQL01DB1245250200001-TARA', 'RESQL01DB1245476300001-CIRR', 'ELSQL01DB1245304000001-AMIG', 'ELSQL01DB1245229100018-GREE', 'RESQL01DB1245929800001-TRUE', 'RESQL01DB1245854700001-CHAR', 'RESQL01DB1245472100001-FRON'];
+    const [activeCompanies, setActiveCompanies] = useState(initialActiveCompanies);
+    const [filteredData, setFilteredData] = useState([]);
+
+    useEffect(() => {
+        // Update filteredData whenever data or activeCompanies changes
+        if (data) {
+        const newFilteredData = data.filter((x:any) => activeCompanies.includes(x.company_unique_id));
+        setFilteredData(newFilteredData);
+        }
+    }, [data, activeCompanies]);
+
+    const handleCompanyFilter = (id:any) => {
+        const index = activeCompanies.indexOf(id);
+        const newActiveCompanies = [...activeCompanies];
+
+        if (index !== -1) {
+        newActiveCompanies.splice(index, 1);
+        } else {
+        newActiveCompanies.push(id);
+        }
+
+        setActiveCompanies(newActiveCompanies);
+    };
 
   return (
     <main className="px-[9%] max-lg:px-[2%] py-5 pt-10">
@@ -37,47 +60,34 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
             <p className="text-md text-primary">{showFilter ? "Hide": "Show"} Filters</p>
         </button>
         
-        <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[50vh] overflow-y-auto`}
+        <div className={`${!showFilter && 'max-xl:hidden'} bg-gray-200 py-4 px-3 rounded-md shadow-md min-w-[300px] max-h-[40vh] overflow-y-auto`}
         >
             <h4 className="md:text-xl text-lg mb-4 text-text font-semibold">Plan Filters</h4>
             <div>
 
             <p className="font-semibold mb-1">Providers: </p>
-            {providersName.map((provider, i) => (
+            {providerData.map((provider, i) => (
             <div key={i}
             className="flex items-center gap-2"
             >
                 <input type="checkbox" 
                 className="w-[20px] h-[20px]"
-                id={`check-${provider}`}
+                id={`check-${provider.name}`}
+                onChange={() => handleCompanyFilter(provider.id)}
                 defaultChecked
                 />
-                <label htmlFor={`check-${provider}`}>{provider}</label>
+                <label htmlFor={`check-${provider.name}`}>{provider.name}</label>
             </div>
             ))}
-            </div>
-            
-            <div className="mt-4">
-            <p className="font-semibold mb-1">Usage: </p>
-            {usage.map((kwh, i) => (
-            <div key={i}
-            className="flex items-center gap-2"
-            >
-                <input type="checkbox" 
-                className="w-[20px] h-[20px]"
-                id={`check-${kwh}`}
-                />
-                <label htmlFor={`check-${kwh}`}>{kwh}</label>
-            </div>
-            ))}
-            </div>
+        </div>
             
         </div>
+
         {/* Results section */}
         <div className="w-full">
         {data ? (
         <>  
-        {data.length > 0 ? (
+        {filteredData.length > 0 ? (
             <h6 className="text-primary mb-5 text-lg">
             Total {data?.length} Plans retrieved
         </h6>
@@ -87,7 +97,7 @@ const CompareRates = ({params}: {params: {zip:string}}) => {
         </h6>
         )}
         
-        {data?.map((plan:any) => (
+        {filteredData?.map((plan:any) => (
         <div key={plan.plan_id}
         className="flex flex-col gap-4 justify-center items-start w-full "
         >

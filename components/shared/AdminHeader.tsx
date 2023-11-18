@@ -25,7 +25,7 @@ export const AdminHeader = () => {
         className='flex items-center justify-between gap-4 max-md:hidden'>
 
           <div className='relative'>
-            <div className='text-white text-lg cursor-pointer'
+            <div className='text-white text-lg cursor-pointer mr-10'
             onClick={() => setDD(prev => !prev)}
             >Pages <i className='fas fa-caret-down'></i></div>
             {dd && (
