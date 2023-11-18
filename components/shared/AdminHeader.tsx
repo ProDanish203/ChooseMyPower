@@ -2,12 +2,15 @@
 import { adminLinks } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 
 export const AdminHeader = () => {
 
   const [mobileNav, setMobileNav] = useState(false)
   const [dd, setDD] = useState(false)
+
+  const router = useRouter();
 
   return (
     <header className={`bg-primary sm:px-10 px-3 py-3 flex items-center justify-between w-screen fixed top-0 left-0 z-40 shadow-sm`}>
@@ -30,21 +33,33 @@ export const AdminHeader = () => {
             <div className='text-white absolute flex flex-col gap-2 top-[110%] left-0 w-[200px] py-3 px-3 bg-blackAccent rounded-md'
             data-aos="fade-up" data-aos-duration="700"
             >
-              <Link href='/admin/home' 
-              onClick={() => setDD(false)}
+              <div 
+              onClick={() => {
+                setDD(false)
+                router.push('home')
+              }}
+              className='cursor-pointer'
               >
                 Home
-              </Link>
-              <Link href='/admin/solar'
-              onClick={() => setDD(false)}
+              </div>
+              <div
+              onClick={() => {
+                setDD(false);
+                router.push('solar')
+              }}
+              className='cursor-pointer'
               >
                 Solar
-              </Link>
-              <Link href='/admin/services'
-              onClick={() => setDD(false)}
+              </div>
+              <div
+              onClick={() => {
+                setDD(false)
+                router.push('services')
+              }}
+              className='cursor-pointer'
               >
                 Services
-              </Link>
+              </div>
             </div>
             )}
             

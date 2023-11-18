@@ -24,8 +24,8 @@ export default async function RootLayout({
 
   const session = await getServerSession(GET) 
   // @ts-ignore
-  if(!session) redirect("/login")
-
+  if(!session?.user) redirect("/login")
+ 
   return (
     <html lang="en">
       <head>

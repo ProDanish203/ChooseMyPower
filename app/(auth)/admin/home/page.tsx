@@ -3,7 +3,7 @@ import { getHomeData } from "@/lib/actions/SEO/HomePage"
 
 const HomeSeo = async () => {
 
-    const {data, success } = await getHomeData('home');
+    const {data, success} = await getHomeData('home');
     const {_id, heading, tagLine, aboutHeading, aboutPara1, aboutPara2, expertsTagline, servicesTagline, footerPara} = data;
 
   return (
