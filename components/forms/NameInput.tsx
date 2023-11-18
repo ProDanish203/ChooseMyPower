@@ -4,11 +4,11 @@ interface Props{
     placeholder: string;
     value: string;
     name: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement>
+    handleChange: any
     icon: string;
 }
 
-export const NameInput = ({type, placeholder, icon, name, value, onChange}: Props) => {
+export const NameInput = ({type, placeholder, icon, name, value, handleChange}: Props) => {
   return (
     <div className='w-full flex flex-col gap-2 justify-center'>
 
@@ -21,7 +21,7 @@ export const NameInput = ({type, placeholder, icon, name, value, onChange}: Prop
             required
             name={name}
             value={value}
-            onChange={onChange}
+            onChange={handleChange}
             />
 
             <i className={`fas fa-${icon} text-slate-600 text-lg`}></i>

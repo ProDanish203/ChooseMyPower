@@ -17,6 +17,7 @@ export const Address = () => {
             name='address'
             value={address}
             onChange={(e:any) => setAddress(e.target.value)}
+            required
             />
             <i className='fas fa-location-dot text-xl'></i>
         </div>

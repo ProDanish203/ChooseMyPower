@@ -6,6 +6,7 @@ import { Theme } from '@radix-ui/themes';
 import { AOS } from '@/components/helpers';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { InfoProvider } from "@/store/userData";
 
 export const metadata: Metadata = {
   title: 'Choose My Power',
@@ -24,23 +25,26 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
       </head>
       <body >
+      <InfoProvider>
 
-      <ToastContainer/>
-        <AOS/>
-      <Theme accentColor="blue" grayColor="sand" radius="large" scaling="95%">
-  
-        <div>
-          <Header/>
-        </div>  
+        <ToastContainer/>
+          <AOS/>
+        <Theme accentColor="blue" grayColor="sand" radius="large" scaling="95%">
+    
+          <div>
+            <Header/>
+          </div>  
 
-        <div className='bg-bg pt-16 min-h-[100vh]'>
-          {children}
-        </div>
+          <div className='bg-bg pt-16 min-h-[100vh]'>
+            {children}
+          </div>
+          
+          <div>
+            <Footer/>
+          </div>
+        </Theme>
         
-        <div>
-          <Footer/>
-        </div>
-      </Theme>
+      </InfoProvider>
       </body>
     </html>
   )

@@ -1,3 +1,4 @@
+import { AddressForm } from './AddressForm';
 import { DatePicker } from './DatePicker';
 import { Address } from './Address';
 import { SolarForm } from './SEO Forms/SolarForm';
@@ -7,4 +8,4 @@ import { HomeForm } from "./SEO Forms/HomeForm";
 import { Input } from './Input';
 import { UserInfo } from './UserInfo';
 
-export { Input, ZipCode, ContactForm, HomeForm, SolarForm, Address, DatePicker, UserInfo }
+export { Input, ZipCode, ContactForm, HomeForm, SolarForm, Address, DatePicker, UserInfo, AddressForm }
