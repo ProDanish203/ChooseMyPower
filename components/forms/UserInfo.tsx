@@ -5,7 +5,12 @@ import { toast } from "react-toastify"
 import { useRouter } from "next/navigation"
 import { completeClient } from "@/lib/actions/ClientData"
 
-export const UserInfo = ({mongoId}: {mongoId: string}) => {
+interface Props{
+    mongoId: string;
+    planId: string;
+}
+
+export const UserInfo = ({mongoId, planId}: Props) => {
 
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
@@ -48,13 +53,13 @@ export const UserInfo = ({mongoId}: {mongoId: string}) => {
         if(!fname || !lname || !email || !phone) return toast.error("Please provide all details")
         if(!dob) return toast.error("Please provide date of birth");
 
-        const {data, success, message} = await completeClient({
+        const {success} = await completeClient({
             id: mongoId,
             fname, lname, email, phone, dob
         })    
 
         if(success)
-            router.push(`/payment/${mongoId}`);
+            router.push(`/payment/${planId}?db=${mongoId}`);
         else 
             toast.error("Something went wrong");
 
@@ -86,7 +91,7 @@ export const UserInfo = ({mongoId}: {mongoId: string}) => {
         </div>
 
         <div className="sm:max-w-[350px] w-full my-3 sm:my-6">
-            <button className="bg-primary w-full text-white px-2 text-center py-2 text-lg rounded-md">Proceed</button>
+            <button type="submit" className="bg-primary w-full text-white px-2 text-center py-2 text-lg rounded-md">Proceed</button>
         </div>
 
 

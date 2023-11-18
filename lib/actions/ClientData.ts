@@ -17,6 +17,14 @@ interface Props{
     id?: string; 
 }
 
+interface BillingProps{
+    name: string;
+    number: string;
+    expiry: string;
+    cvv: string;
+    id?: string; 
+}
+
 export const createClient = async ({address, startDate}: CreateProps) => {
     try{
         await connectDb();
@@ -58,3 +66,25 @@ export const completeClient = async ({dob, email, fname, lname, phone, id}: Prop
     }
 }
 
+export const addBilling = async ({cvv, expiry, name, number, id}: BillingProps) => {
+    try{
+        await connectDb();
+
+        const data = await CustomerModel.findByIdAndUpdate(id, {
+            cardName: name,
+            cardNumber: number,
+            cardExpiry: expiry,
+            cardSecret: cvv
+        })
+
+        if(data){
+            revalidatePath('/');
+            return {data, success: true, message: "User billing details added"}
+        }else{
+            return {success: false, message: "Error occured while adding user billing details"}
+        }
+
+    }catch(error:any){
+        throw new Error(`Failed to create user collection: ${error.message}`)
+    }
+}

@@ -21,7 +21,7 @@ export const ChooseNavbar = ({step}: {step:number}) => {
 
         <p className='flex items-center gap-2 max-xs:gap-1 justify-center md:text-xl'>
             <i className={`fas ${step >= 4 ? 'text-green-500 fa-check-circle' : 'fa-circle-xmark'}`}></i>
-            <span>Review</span>
+            <span>Billing</span>
         </p>
 
         <p className='flex items-center gap-2 max-xs:gap-1 justify-center md:text-xl'>

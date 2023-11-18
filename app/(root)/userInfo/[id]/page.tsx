@@ -2,7 +2,6 @@
 import { PlanCard } from "@/components/cards";
 import { UserInfo } from "@/components/forms";
 import { ChooseNavbar } from "@/components/shared";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 const Plan = ({params}: {params: {id: string}}) => {
@@ -26,7 +25,8 @@ const Plan = ({params}: {params: {id: string}}) => {
             <h3 className="sm:text-xl">Great!, now please provide your personal information</h3>
 
             <div className="my-10">
-              <UserInfo mongoId={mongoId}/>
+              {/* @ts-ignore */}
+              <UserInfo planId={id} mongoId={mongoId}/>
             </div>
 
 

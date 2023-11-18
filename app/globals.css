@@ -88,6 +88,12 @@ img{
   background: rgba(0, 0, 0, 0.5);
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 /* Footer Section Starts */
 .grid-5{
   display: grid;
