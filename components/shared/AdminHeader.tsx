@@ -1,5 +1,4 @@
 "use client"
-import { adminLinks } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
@@ -36,7 +35,7 @@ export const AdminHeader = () => {
               <div 
               onClick={() => {
                 setDD(false)
-                router.push('home')
+                router.push('/admin/home')
               }}
               className='cursor-pointer'
               >
@@ -45,7 +44,7 @@ export const AdminHeader = () => {
               <div
               onClick={() => {
                 setDD(false);
-                router.push('solar')
+                router.push('/admin/solar')
               }}
               className='cursor-pointer'
               >
@@ -54,7 +53,7 @@ export const AdminHeader = () => {
               <div
               onClick={() => {
                 setDD(false)
-                router.push('services')
+                router.push('/admin/services')
               }}
               className='cursor-pointer'
               >
@@ -65,18 +64,6 @@ export const AdminHeader = () => {
             
           </div>
 
-          {adminLinks.map((link, i) => {
-            const delay = (i % 4 + 2 ) * 50;
-            return (
-              <Link href={link.path} key={i} 
-              className={`text-bg`}
-              data-aos="fade-left" data-aos-delay={`${delay}`} data-aos-duration="1200"
-              >
-                {link.name}
-              </Link>
-            )
-          } 
-          )}
         </nav>
 
         <div className='md:hidden'
@@ -100,34 +87,37 @@ export const AdminHeader = () => {
             <div className='text-white  flex flex-col gap-2 w-[200px] py-3 px-3 rounded-md'
             data-aos="fade-left" data-aos-duration="700"
             >
-              <Link href='/admin/home' 
-              onClick={() => setDD(false)}
+              <div 
+              className='cursor-pointer'
+              onClick={() => {
+                setDD(false)
+                router.push('/admin/home')
+              }}
               >
                 Home
-              </Link>
-              <Link href='/admin/solar'
-              onClick={() => setDD(false)}
+              </div>
+              <div
+              className='cursor-pointer'
+              onClick={() => {
+                setDD(false)
+                router.push('/admin/solar')
+              }}
               >
                 Solar
-              </Link>
-              <Link href='/admin/services'
-              onClick={() => setDD(false)}
+              </div>
+              <div 
+              className='cursor-pointer'
+              onClick={() => {
+                setDD(false)
+                router.push('/admin/services')
+              }}
               >
                 Services
-              </Link>
+              </div>
             </div>
             )}
             
           </div>
-
-          {adminLinks.map((link, i) => (
-            <Link href={link.path} key={i}
-            className={`text-bg text-lg`}
-            onClick={() => setMobileNav(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
         </nav>
           )}
 

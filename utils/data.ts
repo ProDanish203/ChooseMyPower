@@ -21,13 +21,6 @@ export const navLinks = [
     },
 ]
 
-export const adminLinks = [
-    {
-        name: 'Insert Data',
-        path: '/admin/insertData'
-    },
-]
-
 export const providersName = ['All', 'CleanSky Energy', 'Energy Texas', 'Gexa Energy', 'Onpoint energy']
 
 export const usage = ['500kwh', '1000kwh', '2000kwh']
