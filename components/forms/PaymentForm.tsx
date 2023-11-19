@@ -9,9 +9,10 @@ import 'react-credit-cards-2/dist/es/styles-compiled.css';
 interface Props{
     mongoId: string;
     planId: string;
+    zip: String
 }
 
-export const PaymentForm = ({mongoId, planId}: Props) => {
+export const PaymentForm = ({mongoId, planId, zip}: Props) => {
 
     const [state, setState] = useState({
         number: '',
@@ -46,7 +47,7 @@ export const PaymentForm = ({mongoId, planId}: Props) => {
         });
 
         if(success) 
-            router.push(`/complete/${planId}?db=${mongoId}`)
+            router.push(`/complete/${planId}?zip=${zip}&&db=${mongoId}`)
         else
             toast.error("Something went wrong");
     }

@@ -1,11 +1,15 @@
 "use client"
 import { createClient } from "@/lib/actions/ClientData";
-import { useInfo } from "@/store/userData";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react"
 import { toast } from "react-toastify";
 
-export const AddressForm = ({id}: {id: string}) => {
+interface Props{
+    id: string;
+    zip: string;
+}
+
+export const AddressForm = ({id, zip}: Props) => {
 
     const [address, setAddress] = useState("")
     const [selectedDate, setSelectedDate] = useState('');
@@ -34,7 +38,7 @@ export const AddressForm = ({id}: {id: string}) => {
         const {data, success, message} = await createClient({address, startDate: selectedDate}); 
 
         if(success)
-            router.push(`/userInfo/${id}?db=${data._id}`);
+            router.push(`/userInfo/${id}?zip=${zip}&&db=${data._id}`);
         else
             toast.error("Something went wrong");
     }

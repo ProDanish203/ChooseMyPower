@@ -4,18 +4,32 @@ import { fetcher } from "@/lib/fetcher";
 import Image from "next/image";
 import { useState } from "react";
 import { RateModal } from "./RateModal";
+import Loading from "@/app/(auth)/loading";
+import { Loader } from "../helpers";
 
-export const PlanCard = ({id}:{id: string}) => {
+interface Props{
+  id: string;
+  zip: string;
+}
 
-    const {data, mutate, isLoading, error} = useSWR(`/api/getPlan/${id}`, fetcher);
-    const [showModal, setShowModal] = useState(false);
+export const PlanCard = ({id, zip}:Props) => {
+
+  const {data, mutate, isLoading, error} = useSWR(`/api/getPlan/${id}?zip=${zip}`, fetcher);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="border-slate-600 shadow-md border-2 rounded-md max-w-[400px] w-full mx-auto">
         {showModal && (
-          <RateModal data={data} id={data?.plan_id} setShowModal={setShowModal}/>
-        )}   
-        <div className="bg-primary rounded-sm py-2 px-4 text-white sm:text-xl w-full gap-2 flex items-center">
+          <RateModal data={data} setShowModal={setShowModal}/>
+        )}
+        {isLoading ? (
+          <div className="flex items-center justify-center w-full h-[200px]">
+            <Loader dark/> 
+          </div>
+        )
+        : (
+          <>
+          <div className="bg-primary rounded-sm py-2 px-4 text-white sm:text-xl w-full gap-2 flex items-center">
             <i className="fas fa-user"></i>
             <p>Your Plan</p>
         </div>
@@ -51,6 +65,8 @@ export const PlanCard = ({id}:{id: string}) => {
         </div>
 
       </div>
+      </>
+      )}   
 
     </div>
   )

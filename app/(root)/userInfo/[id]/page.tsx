@@ -9,6 +9,7 @@ const Plan = ({params}: {params: {id: string}}) => {
     const {id} = params;  
     const searchParams = useSearchParams();
     const mongoId = searchParams.get('db')
+    const zip = searchParams.get('zip')
 
   return (
     <>
@@ -17,8 +18,8 @@ const Plan = ({params}: {params: {id: string}}) => {
   <main className="xl:px-[4%] px-[2%] py-5 pt-10">
     <section className="max-w-[1700px] w-full mx-auto">
         <div className="flex items-start  max-xl:flex-col flex-wrap w-full gap-10">
-
-          <PlanCard id={id}/>
+        {/* @ts-ignore */}
+          <PlanCard id={id} zip={zip}/>
       
           <div className="flex-1 h-full">
             <h2 className="text-5xl font-bold my-2 max-sm:text-2xl">Enter Your Information</h2>
@@ -26,7 +27,7 @@ const Plan = ({params}: {params: {id: string}}) => {
 
             <div className="my-10">
               {/* @ts-ignore */}
-              <UserInfo planId={id} mongoId={mongoId}/>
+              <UserInfo planId={id} mongoId={mongoId} zip={zip}/>
             </div>
 
 

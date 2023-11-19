@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const RateCard = ({data} :any) => {
 
-    const {plan_id, company_logo, company_name, term_value, price_kwh500} = data;
+    const {plan_id, company_logo, company_name, term_value, price_kwh500, zip_code} = data;
     const [showModal, setShowModal] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export const RateCard = ({data} :any) => {
 
         {
             showModal && (
-                <RateModal data={data} id={plan_id} setShowModal={setShowModal}/>
+                <RateModal data={data} setShowModal={setShowModal}/>
             )
         }   
         <div className="w-full flex items-center justify-between max-md:flex-col max-md:justify-center pr-5 gap-2">
@@ -46,7 +46,7 @@ export const RateCard = ({data} :any) => {
             </div>
 
             <div className="max-md:w-full max-md:mt-14 flex flex-col gap-2">
-                <Link href={`/plan/${plan_id}`}>
+                <Link href={`/plan/${plan_id}?zip=${zip_code}`}>
                 <button type="button" className="max-md:w-full bg-primary text-white md:text-lg flex rounded-full shadow-sm py-2 px-5 items-center gap-2 hover:gap-3 ">
                     Select Plan 
                     <i className="fas fa-arrow-right-long"></i>

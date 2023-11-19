@@ -8,9 +8,10 @@ import { completeClient } from "@/lib/actions/ClientData"
 interface Props{
     mongoId: string;
     planId: string;
+    zip: string;
 }
 
-export const UserInfo = ({mongoId, planId}: Props) => {
+export const UserInfo = ({mongoId, planId, zip}: Props) => {
 
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
@@ -46,8 +47,6 @@ export const UserInfo = ({mongoId, planId}: Props) => {
         }
     }
 
-    
-
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         if(!fname || !lname || !email || !phone) return toast.error("Please provide all details")
@@ -59,7 +58,7 @@ export const UserInfo = ({mongoId, planId}: Props) => {
         })    
 
         if(success)
-            router.push(`/payment/${planId}?db=${mongoId}`);
+            router.push(`/payment/${planId}?zip=${zip}&&db=${mongoId}`);
         else 
             toast.error("Something went wrong");
 

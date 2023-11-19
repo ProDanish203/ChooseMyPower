@@ -111,10 +111,18 @@ export const Footer = async () => {
   <div className='bg-primary text-center text-bg max-sm:text-sm py-3'>
     <p>          
     All rights reserved by <span className='text-secondary'>Choose My Power LLC </span>
-    | Designed By  
+    | Designed And Developed By  
+    
+    <Link href="https://mahirweb.com/" target='_blank' className='text-secondary'>
+      <span> Mahir Web </span>
+    </Link>  
+    And 
+
     <Link href="https://danish-siddiqui.vercel.app" target='_blank' className='text-secondary'>
-      <span> Danish Siddiqui</span>
+      <span> Danish Siddiqui </span>
     </Link>
+    
+    
     </p>
   </div>
 </section>

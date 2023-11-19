@@ -1,18 +1,13 @@
 "use client"
-import useSWR from "swr";
-import { fetcher } from "@/lib/fetcher";
-import Loading from "@/app/(auth)/loading";
-import { Loader } from "../helpers";
 import Image from "next/image";
 import Link from "next/link";
 
 interface Props{
-    id: string;
     setShowModal: (val: boolean) => void;
     data: any;
 }
 
-export const RateModal = ({data, id, setShowModal}: Props) => {
+export const RateModal = ({data, setShowModal}: Props) => {
 
   return (
     <div className="modal-bg flex items-center justify-center flex-col fixed top-0 left-0 w-full h-screen z-40 p-3">
@@ -41,7 +36,7 @@ export const RateModal = ({data, id, setShowModal}: Props) => {
             </div>
 
             <div className="flex flex-col gap-2 max-sm:w-full">
-                <Link href={`/plan/${data?.plan_id}`}>
+                <Link href={`/plan/${data?.plan_id}?zip=${data?.zip_code}`}>
                 <button className="bg-primary rounded-full max-sm:w-full max-sm:block text-lg text-white py-2.5 px-10 flex items-center shadow-sm hover:shadow-md hover:gap-3 gap-2 justify-center">
                     Select Plan
                     <i className="fas fa-arrow-right-long max-sm:ml-3"></i>
