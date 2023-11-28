@@ -1,15 +1,21 @@
-"use client"
 import { PlanCard } from "@/components/cards";
 import { UserInfo } from "@/components/forms";
 import { ChooseNavbar } from "@/components/shared";
-import { useSearchParams } from "next/navigation";
 
-const Plan = ({params}: {params: {id: string}}) => {
+interface Params{
+  params: {
+    id: string;
+  }, 
+  searchParams: {
+    zip: string;
+    mongoId: string;
+  }
+}
+
+const Plan = ({params, searchParams}: Params) => {
 
     const {id} = params;  
-    const searchParams = useSearchParams();
-    const mongoId = searchParams.get('db')
-    const zip = searchParams.get('zip')
+    const {zip, mongoId} = searchParams
 
   return (
     <>
@@ -29,7 +35,6 @@ const Plan = ({params}: {params: {id: string}}) => {
               {/* @ts-ignore */}
               <UserInfo planId={id} mongoId={mongoId} zip={zip}/>
             </div>
-
 
           </div>
 

@@ -1,5 +1,4 @@
 "use client"
-import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import { providerData } from "@/utils/data";
@@ -7,11 +6,19 @@ import Loading from "./loading";
 import { RateCard } from "@/components/cards";
 import { useEffect, useState } from "react";
 
-const CompareRates = ({params}: {params: {zip:string}}) => {
+interface Params{
+    params: {
+        zip: string;
+    }, 
+    searchParams: {
+        type: string
+    }
+}
+
+const CompareRates = ({params, searchParams}: Params) => {
 
     const {zip} = params;
-    const searchParams = useSearchParams();
-    const type = searchParams.get('type')
+    const {type}  = searchParams
 
     const [showFilter, setShowFilter] = useState(false)
 

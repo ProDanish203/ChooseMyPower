@@ -1,14 +1,20 @@
-"use client"
 import { PlanCard } from '@/components/cards'
 import { ChooseNavbar } from '@/components/shared'
-import { useSearchParams } from 'next/navigation';
 
-const Complete = ({params}: {params: {id: string}}) => {
+interface Params{
+  params: {
+    id: string;
+  }, 
+  searchParams: {
+    zip: string;
+    mongoId: string;
+  }
+}
 
-    const {id} = params;  
-    const searchParams = useSearchParams();
-    const mongoId = searchParams.get('db')
-    const zip = searchParams.get('zip')
+const Complete = ({params, searchParams}: Params) => {
+
+  const {id} = params;  
+  const {zip, mongoId} = searchParams
 
   return (
     <>

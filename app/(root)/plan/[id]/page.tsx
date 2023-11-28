@@ -1,14 +1,20 @@
-"use client"
 import { PlanCard } from "@/components/cards";
 import { ChooseNavbar } from "@/components/shared";
 import { AddressForm } from "@/components/forms";
-import { useSearchParams } from "next/navigation";
 
-const Plan = ({params}: {params: {id: string}}) => {
+interface Params{
+  params: {
+    id: string;
+  }, 
+  searchParams: {
+    zip: string
+  }
+}
+
+const Plan = ({params, searchParams}: Params) => {
 
   const {id} = params;  
-  const searchParams = useSearchParams();
-  const zip = searchParams.get('zip')
+  const {zip} = searchParams;
 
   return (
     <>

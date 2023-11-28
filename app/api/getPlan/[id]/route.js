@@ -2,10 +2,10 @@ export const GET = async (req, {params}, res) => {
     try{
         const {id} = await params;
         const zip = req.nextUrl.searchParams.get('zip');
-    
+        
         const response = await fetch(`http://api.powertochoose.org/api/PowerToChoose/plans?zip_code=${zip}`);
         const {data} = await response.json();
-
+        
         let selectedData;
         if(data){   
             const plan = data.find(item => item.plan_id === parseInt(id))
@@ -42,7 +42,7 @@ export const GET = async (req, {params}, res) => {
             }
             else console.log("Not found")            
         }
-
+        console.log(selectedData)
         return new Response(JSON.stringify(selectedData), {status: 200});
     }catch(error){
         console.log(error)
